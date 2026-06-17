@@ -1,0 +1,586 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">  
+    <title>AUREVIA | Cellular Precision. Elevated.</title>  
+    <!-- Google Fonts: Inter & Sora -->  
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">  
+    <!-- Font Awesome 6 (Free Icons) -->  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
+    <style>  
+        * {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+        }  
+  
+        body {  
+            font-family: 'Inter', sans-serif;  
+            background-color: #0F172A; /* Deep Navy primary */  
+            color: #F8FAFC; /* Soft White for main text */  
+            line-height: 1.5;  
+            scroll-behavior: smooth;  
+        }  
+  
+        /* Typography */  
+        h1, h2, h3, h4, .headline-font {  
+            font-family: 'Sora', sans-serif;  
+            font-weight: 600;  
+            letter-spacing: -0.02em;  
+        }  
+  
+        h1 {  
+            font-size: clamp(2.8rem, 8vw, 4.8rem);  
+            line-height: 1.2;  
+            font-weight: 700;  
+        }  
+  
+        h2 {  
+            font-size: clamp(2rem, 5vw, 3rem);  
+            margin-bottom: 1rem;  
+            font-weight: 600;  
+        }  
+  
+        h3 {  
+            font-size: 1.5rem;  
+            font-weight: 600;  
+            margin-bottom: 0.75rem;  
+        }  
+  
+        .subhead {  
+            font-size: 1.2rem;  
+            color: #E2E8F0;  
+            max-width: 600px;  
+        }  
+  
+        /* Layout & container */  
+        .container {  
+            max-width: 1280px;  
+            margin: 0 auto;  
+            padding: 0 32px;  
+        }  
+  
+        section {  
+            padding: 80px 0;  
+            border-bottom: 1px solid rgba(226, 232, 240, 0.08);  
+        }  
+  
+        /* Buttons and links */  
+        .btn-primary {  
+            display: inline-flex;  
+            align-items: center;  
+            gap: 0.5rem;  
+            background: #C6A85B; /* Muted Gold accent */  
+            color: #0F172A;  
+            font-weight: 600;  
+            padding: 0.9rem 2rem;  
+            border-radius: 40px;  
+            text-decoration: none;  
+            transition: all 0.25s ease;  
+            font-size: 1rem;  
+            border: none;  
+            cursor: pointer;  
+        }  
+  
+        .btn-primary:hover {  
+            background: #dbbf7a;  
+            transform: translateY(-2px);  
+            box-shadow: 0 12px 20px -10px rgba(198, 168, 91, 0.3);  
+        }  
+  
+        .btn-outline {  
+            background: transparent;  
+            border: 1px solid #C6A85B;  
+            color: #F8FAFC;  
+            padding: 0.7rem 1.5rem;  
+            border-radius: 40px;  
+            text-decoration: none;  
+            font-weight: 500;  
+            transition: 0.2s;  
+        }  
+  
+        .btn-outline:hover {  
+            background: rgba(198, 168, 91, 0.15);  
+            border-color: #dbbf7a;  
+        }  
+  
+        /* Navigation */  
+        .navbar {  
+            padding: 24px 0;  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+            flex-wrap: wrap;  
+            gap: 20px;  
+            border-bottom: 1px solid rgba(226, 232, 240, 0.1);  
+        }  
+  
+        .logo {  
+            font-family: 'Sora', sans-serif;  
+            font-size: 1.8rem;  
+            font-weight: 700;  
+            letter-spacing: -0.02em;  
+            background: linear-gradient(135deg, #F8FAFC 0%, #C6A85B 100%);  
+            -webkit-background-clip: text;  
+            background-clip: text;  
+            color: transparent;  
+        }  
+  
+        .nav-links {  
+            display: flex;  
+            gap: 2rem;  
+            align-items: center;  
+        }  
+  
+        .nav-links a {  
+            color: #E2E8F0;  
+            text-decoration: none;  
+            font-weight: 500;  
+            transition: color 0.2s;  
+        }  
+  
+        .nav-links a:hover {  
+            color: #C6A85B;  
+        }  
+  
+        /* Hero Section */  
+        .hero {  
+            display: flex;  
+            flex-direction: column;  
+            gap: 1.5rem;  
+            padding: 40px 0 20px 0;  
+        }  
+  
+        .badge {  
+            background: rgba(198, 168, 91, 0.15);  
+            padding: 0.3rem 0.8rem;  
+            border-radius: 40px;  
+            width: fit-content;  
+            font-size: 0.8rem;  
+            color: #C6A85B;  
+            font-weight: 500;  
+        }  
+  
+        /* Trust pillars grid */  
+        .pillars-grid {  
+            display: flex;  
+            flex-wrap: wrap;  
+            gap: 2rem;  
+            justify-content: space-between;  
+            margin-top: 2rem;  
+        }  
+  
+        .pillar-card {  
+            flex: 1;  
+            background: #1E293B;  
+            padding: 2rem;  
+            border-radius: 28px;  
+            transition: all 0.2s;  
+            border: 1px solid rgba(226, 232, 240, 0.05);  
+        }  
+  
+        .pillar-card i {  
+            font-size: 2.2rem;  
+            color: #C6A85B;  
+            margin-bottom: 1.2rem;  
+        }  
+  
+        /* Collections */  
+        .collections-grid {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  
+            gap: 2rem;  
+            margin-top: 2rem;  
+        }  
+  
+        .collection-item {  
+            background: #1E293B;  
+            border-radius: 28px;  
+            padding: 2rem;  
+            transition: transform 0.2s;  
+            border: 1px solid rgba(198, 168, 91, 0.2);  
+        }  
+  
+        .collection-item:hover {  
+            transform: translateY(-5px);  
+            border-color: #C6A85B;  
+        }  
+  
+        /* Why AUREVIA list */  
+        .why-grid {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));  
+            gap: 1.5rem;  
+            margin: 2rem 0;  
+        }  
+  
+        .why-point {  
+            display: flex;  
+            align-items: center;  
+            gap: 1rem;  
+            background: rgba(30, 41, 59, 0.6);  
+            padding: 1rem 1.2rem;  
+            border-radius: 60px;  
+            backdrop-filter: blur(2px);  
+        }  
+  
+        .why-point i {  
+            color: #C6A85B;  
+            font-size: 1.3rem;  
+        }  
+  
+        /* Email capture */  
+        .email-section {  
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);  
+            border-radius: 48px;  
+            padding: 3rem;  
+            text-align: center;  
+            border: 1px solid rgba(198, 168, 91, 0.3);  
+        }  
+  
+        .email-form {  
+            display: flex;  
+            flex-wrap: wrap;  
+            justify-content: center;  
+            gap: 1rem;  
+            margin-top: 2rem;  
+        }  
+  
+        .email-form input {  
+            padding: 0.9rem 1.5rem;  
+            border-radius: 60px;  
+            border: none;  
+            background: #F8FAFC;  
+            width: 280px;  
+            font-family: 'Inter', sans-serif;  
+        }  
+  
+        /* Footer */  
+        footer {  
+            padding: 48px 0 32px;  
+            background-color: #0A0F1A;  
+        }  
+  
+        .footer-grid {  
+            display: flex;  
+            flex-wrap: wrap;  
+            justify-content: space-between;  
+            gap: 2rem;  
+            margin-bottom: 2rem;  
+        }  
+  
+        .footer-links {  
+            display: flex;  
+            gap: 3rem;  
+            flex-wrap: wrap;  
+        }  
+  
+        .footer-col a {  
+            display: block;  
+            color: #94A3B8;  
+            text-decoration: none;  
+            margin-bottom: 0.6rem;  
+            font-size: 0.9rem;  
+        }  
+  
+        .footer-col a:hover {  
+            color: #C6A85B;  
+        }  
+  
+        .social-icons a {  
+            color: #CBD5E1;  
+            margin-right: 1rem;  
+            font-size: 1.2rem;  
+        }  
+  
+        hr {  
+            border-color: rgba(226, 232, 240, 0.1);  
+            margin: 2rem 0 1rem;  
+        }  
+  
+        /* product placeholder card */  
+        .product-sample {  
+            background: #1E293B;  
+            border-radius: 28px;  
+            padding: 1.5rem;  
+            margin-top: 1rem;  
+            border-left: 4px solid #C6A85B;  
+        }  
+  
+        /* Responsive */  
+        @media (max-width: 768px) {  
+            .container {  
+                padding: 0 24px;  
+            }  
+            section {  
+                padding: 60px 0;  
+            }  
+            .navbar {  
+                flex-direction: column;  
+                align-items: flex-start;  
+            }  
+            .nav-links {  
+                flex-wrap: wrap;  
+                gap: 1rem;  
+            }  
+            .pillars-grid {  
+                flex-direction: column;  
+            }  
+            .email-form input {  
+                width: 100%;  
+            }  
+        }  
+    </style>  
+</head>  
+<body>  
+  
+    <!-- Navigation -->  
+    <div class="container">  
+        <nav class="navbar">  
+            <div class="logo">AUREVIA</div>  
+            <div class="nav-links">  
+                <a href="#home">Home</a>  
+                <a href="#collections">Collections</a>  
+                <a href="#about">About</a>  
+                <a href="#">Education</a>  
+                <a href="#">FAQ</a>  
+                <a href="#">Contact</a>  
+            </div>  
+        </nav>  
+    </div>  
+  
+    <main>  
+        <!-- HOMEPAGE / Section 1: Hero -->  
+        <section id="home">  
+            <div class="container">  
+                <div class="hero">  
+                    <div class="badge">Cellular Performance · Premium Longevity</div>  
+                    <h1>Cellular Precision.<br>Elevated.</h1>  
+                    <p class="subhead">Science-driven wellness solutions designed for recovery, vitality, and long-term performance.</p>  
+                    <div>  
+                        <a href="#collections" class="btn-primary">Explore Collections <i class="fas fa-arrow-right"></i></a>  
+                    </div>  
+                </div>  
+            </div>  
+        </section>  
+  
+        <!-- Section 2: Trust Section - Three Pillars (Quality, Transparency, Education) -->  
+        <section>  
+            <div class="container">  
+                <div style="text-align: center; margin-bottom: 3rem;">  
+                    <h2>Built on uncompromising trust</h2>  
+                    <p style="color: #E2E8F0;">Every product reflects our commitment to you.</p>  
+                </div>  
+                <div class="pillars-grid">  
+                    <div class="pillar-card">  
+                        <i class="fas fa-flask"></i>  
+                        <h3>Quality</h3>  
+                        <p>Batch-verified standards with third-party testing. Each shipment is produced according to strict protocols.</p>  
+                    </div>  
+                    <div class="pillar-card">  
+                        <i class="fas fa-file-alt"></i>  
+                        <h3>Transparency</h3>  
+                        <p>Clear sourcing and documentation. Full visibility into ingredients, origins, and certifications.</p>  
+                    </div>  
+                    <div class="pillar-card">  
+                        <i class="fas fa-graduation-cap"></i>  
+                        <h3>Education</h3>  
+                        <p>Research-focused learning resources to help you make informed wellness decisions.</p>  
+                    </div>  
+                </div>  
+            </div>  
+        </section>  
+  
+        <!-- Section 3: Collections (Cellular Longevity, Recovery & Regeneration, Aesthetic Optimization) -->  
+        <section id="collections">  
+            <div class="container">  
+                <div style="margin-bottom: 2rem;">  
+                    <h2>Our collections</h2>  
+                    <p style="color: #E2E8F0;">Precision formulations for distinct wellness goals.</p>  
+                </div>  
+                <div class="collections-grid">  
+                    <div class="collection-item">  
+                        <i class="fas fa-dna" style="font-size: 2rem; color: #C6A85B; margin-bottom: 1rem; display: block;"></i>  
+                        <h3>Cellular Longevity</h3>  
+                        <p>Support your long‑term wellness journey with advanced cellular health solutions.</p>  
+                        <a href="#" style="color: #C6A85B; text-decoration: none; margin-top: 1rem; display: inline-block;">Discover →</a>  
+                    </div>  
+                    <div class="collection-item">  
+                        <i class="fas fa-heartbeat" style="font-size: 2rem; color: #C6A85B; margin-bottom: 1rem; display: block;"></i>  
+                        <h3>Recovery & Regeneration</h3>  
+                        <p>Focused on restoration, performance, and revitalizing the body’s innate repair systems.</p>  
+                        <a href="#" style="color: #C6A85B; text-decoration: none; margin-top: 1rem; display: inline-block;">Discover →</a>  
+                    </div>  
+                    <div class="collection-item">  
+                        <i class="fas fa-spa" style="font-size: 2rem; color: #C6A85B; margin-bottom: 1rem; display: block;"></i>  
+                        <h3>Aesthetic Optimization</h3>  
+                        <p>Wellness and appearance‑focused solutions for holistic radiance.</p>  
+                        <a href="#" style="color: #C6A85B; text-decoration: none; margin-top: 1rem; display: inline-block;">Discover →</a>  
+                    </div>  
+                </div>  
+            </div>  
+        </section>  
+  
+        <!-- Section 4: Why AUREVIA -->  
+        <section>  
+            <div class="container">  
+                <div style="margin-bottom: 2rem;">  
+                    <h2>Why AUREVIA</h2>  
+                    <p>Redefining the standard for premium wellness.</p>  
+                </div>  
+                <div class="why-grid">  
+                    <div class="why-point"><i class="fas fa-certificate"></i> <span>Premium quality standards</span></div>  
+                    <div class="why-point"><i class="fas fa-microscope"></i> <span>Science-informed approach</span></div>  
+                    <div class="why-point"><i class="fas fa-eye"></i> <span>Transparent sourcing</span></div>  
+                    <div class="why-point"><i class="fas fa-chalkboard-user"></i> <span>Educational resources</span></div>  
+                </div>  
+                <!-- subtle brand statement -->  
+                <div class="product-sample" style="margin-top: 2.5rem;">  
+                    <p style="font-style: italic; color: #CBD5E1;">“Developed for individuals seeking a science‑informed approach to wellness and recovery. Produced according to strict quality standards with batch verification.”</p>  
+                    <div style="margin-top: 0.5rem;"><i class="fas fa-check-circle" style="color: #C6A85B;"></i> Independent lab tested</div>  
+                </div>  
+            </div>  
+        </section>  
+  
+        <!-- Section 5: Email Capture / Community -->  
+        <section>  
+            <div class="container">  
+                <div class="email-section">  
+                    <h3 style="font-size: 1.8rem;">Join the AUREVIA Community</h3>  
+                    <p style="color: #E2E8F0; max-width: 500px; margin: 0.5rem auto;">Receive educational content, product updates, and wellness insights.</p>  
+                    <div class="email-form">  
+                        <input type="email" placeholder="Your email address" id="emailInput">  
+                        <button class="btn-primary" id="subscribeBtn">Subscribe <i class="fas fa-paper-plane"></i></button>  
+                    </div>  
+                    <p style="font-size: 0.75rem; margin-top: 1rem; color: #94A3B8;">We respect your privacy. Unsubscribe anytime.</p>  
+                </div>  
+            </div>  
+        </section>  
+  
+        <!-- About Page Section integrated (brand story) -->  
+        <section id="about">  
+            <div class="container">  
+                <div style="max-width: 800px;">  
+                    <h2>Advancing Wellness Through Science</h2>  
+                    <p style="font-size: 1.2rem; margin: 1.5rem 0; color: #E2E8F0;">AUREVIA was founded to bring a higher standard of quality, transparency, and education to the wellness space. Our mission is to help individuals make informed decisions through science-driven resources and carefully selected products.</p>  
+                    <p>We bridge the gap between luxury wellness and future longevity clinics, offering cellular performance tools previously accessible only to insiders. Every formula is a convergence of rigorous research and premium-grade ingredients.</p>  
+                    <div style="margin-top: 2rem;">  
+                        <a href="#" class="btn-outline">Learn more about our approach <i class="fas fa-chevron-right"></i></a>  
+                    </div>  
+                </div>  
+            </div>  
+        </section>  
+  
+        <!-- Product Page Framework Preview (showcasing structure from brand guide) -->  
+        <section>  
+            <div class="container">  
+                <div style="margin-bottom: 1.5rem;">  
+                    <h2>Signature product framework</h2>  
+                    <p>Every AUREVIA product includes full transparency and education.</p>  
+                </div>  
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.5rem;">  
+                    <div class="pillar-card" style="background: #111827;">  
+                        <i class="fas fa-cube"></i>  
+                        <h4>Product Overview</h4>  
+                        <small>Precise description & indications</small>  
+                    </div>  
+                    <div class="pillar-card" style="background: #111827;">  
+                        <i class="fas fa-medal"></i>  
+                        <h4>Quality Standards</h4>  
+                        <small>cGMP, third-party verified</small>  
+                    </div>  
+                    <div class="pillar-card" style="background: #111827;">  
+                        <i class="fas fa-barcode"></i>  
+                        <h4>Batch Information</h4>  
+                        <small>Traceability from production to delivery</small>  
+                    </div>  
+                    <div class="pillar-card" style="background: #111827;">  
+                        <i class="fas fa-file-pdf"></i>  
+                        <h4>Documentation</h4>  
+                        <small>COAs, sourcing documents</small>  
+                    </div>  
+                    <div class="pillar-card" style="background: #111827;">  
+                        <i class="fas fa-question-circle"></i>  
+                        <h4>FAQs</h4>  
+                        <small>In-depth Q&A per product</small>  
+                    </div>  
+                    <div class="pillar-card" style="background: #111827;">  
+                        <i class="fas fa-link"></i>  
+                        <h4>Related Products</h4>  
+                        <small>Curated wellness stacks</small>  
+                    </div>  
+                </div>  
+            </div>  
+        </section>  
+  
+        <!-- Footer -->  
+        <footer>  
+            <div class="container">  
+                <div class="footer-grid">  
+                    <div>  
+                        <div class="logo" style="font-size: 1.7rem;">AUREVIA</div>  
+                        <p style="margin-top: 1rem; max-width: 220px; color: #94A3B8;">Cellular Precision. Elevated.</p>  
+                    </div>  
+                    <div class="footer-links">  
+                        <div class="footer-col">  
+                            <strong style="color:#F8FAFC">Explore</strong>  
+                            <a href="#">Home</a>  
+                            <a href="#">Collections</a>  
+                            <a href="#">About</a>  
+                            <a href="#">Education</a>  
+                        </div>  
+                        <div class="footer-col">  
+                            <strong style="color:#F8FAFC">Support</strong>  
+                            <a href="#">FAQ</a>  
+                            <a href="#">Contact</a>  
+                            <a href="#">Shipping Policy</a>  
+                            <a href="#">Privacy Policy</a>  
+                            <a href="#">Terms of Service</a>  
+                        </div>  
+                        <div class="footer-col">  
+                            <strong style="color:#F8FAFC">Connect</strong>  
+                            <div class="social-icons">  
+                                <a href="#"><i class="fab fa-instagram"></i></a>  
+                                <a href="#"><i class="fab fa-x-twitter"></i></a>  
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>  
+                            </div>  
+                        </div>  
+                    </div>  
+                </div>  
+                <hr>  
+                <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #64748B;">  
+                    <span>© 2026 AUREVIA — Premium Longevity & Cellular Performance</span>  
+                    <span>Science at the cellular level.</span>  
+                </div>  
+            </div>  
+        </footer>  
+    </main>  
+  
+    <!-- Simple JS for email capture interactive (demo) -->  
+    <script>  
+        document.getElementById('subscribeBtn').addEventListener('click', function() {  
+            let emailInput = document.getElementById('emailInput');  
+            let email = emailInput.value.trim();  
+            if (email === "" || !email.includes('@')) {  
+                alert('Please enter a valid email address to join the AUREVIA community.');  
+            } else {  
+                alert(`Thank you! ${email} has been subscribed. You'll receive the latest wellness insights.`);  
+                emailInput.value = '';  
+            }  
+        });  
+        // Optional smooth scroll for anchor links  
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {  
+            anchor.addEventListener('click', function(e) {  
+                const targetId = this.getAttribute('href');  
+                if (targetId === "#" || targetId === "") return;  
+                const targetElement = document.querySelector(targetId);  
+                if (targetElement) {  
+                    e.preventDefault();  
+                    targetElement.scrollIntoView({ behavior: 'smooth' });  
+                }  
+            });  
+        });  
+    </script>  
+</body>  
+</html>  

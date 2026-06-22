@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AUREVIA | Cellular Precision. Elevated.</title>
+  <meta name="description" content="AUREVIA combines science-informed wellness with uncompromising quality to support vitality, recovery, and long-term well-being." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    /* ===== 基础重置 ===== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    ...
     :root {
       --navy: #0F172A;
       --charcoal: #1E293B;
@@ -17,53 +25,73 @@
       --gray-mid: #94A3B8;
       --gray-dim: #475569;
       --gold: #C6A85B;
-      --gold-dim: rgba(198,168,91,0.15);
-      --gold-border: rgba(198,168,91,0.3);
+      --gold-dim: rgba(198, 168, 91, 0.15);
+      --gold-border: rgba(198, 168, 91, 0.3);
+      --cream: #FAF8F5;
+      --dark-cream: #F5F0E8;
+      --body-grey: #3D3A35;
+      --heading-grey: #1A1A18;
+      --font-body: 'Inter', sans-serif;
+      --font-heading: 'Sora', sans-serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      background: var(--navy);
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--heading-grey);
+      font-family: var(--font-body);
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ── */
-    nav {
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== 导航栏 ===== */
+    .navbar {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 48px;
-      height: 68px;
-      background: rgba(15,23,42,0.85);
+      height: 72px;
+      background: rgba(15, 23, 42, 0.88);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(226,232,240,0.06);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.06);
     }
 
     .nav-logo {
-      font-family: 'Sora', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 18px;
-      letter-spacing: 0.18em;
+      font-size: 20px;
+      letter-spacing: 0.15em;
       color: var(--white);
       text-decoration: none;
     }
-
-    .nav-logo span { color: var(--gold); }
+    .nav-logo span {
+      color: var(--gold);
+    }
 
     .nav-links {
       display: flex;
-      gap: 36px;
+      gap: 32px;
       list-style: none;
+      align-items: center;
     }
-
     .nav-links a {
       font-size: 13px;
       font-weight: 500;
@@ -73,8 +101,9 @@
       text-transform: uppercase;
       transition: color 0.2s;
     }
-
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover {
+      color: var(--white);
+    }
 
     .nav-cta {
       font-size: 13px;
@@ -82,38 +111,37 @@
       letter-spacing: 0.08em;
       color: var(--navy);
       background: var(--gold);
-      padding: 10px 22px;
-      border-radius: 3px;
+      padding: 10px 24px;
+      border-radius: 4px;
       text-decoration: none;
       text-transform: uppercase;
       transition: opacity 0.2s;
     }
-
-    .nav-cta:hover { opacity: 0.88; }
-
-    /* ── TRUST BAR ── */
-    .trust-bar {
-      margin-top: 68px;
-      background: var(--charcoal);
-      border-bottom: 1px solid rgba(226,232,240,0.07);
-      overflow: hidden;
-      padding: 12px 0;
+    .nav-cta:hover {
+      opacity: 0.88;
     }
 
+    /* ===== Trust Bar ===== */
+    .trust-bar {
+      margin-top: 72px;
+      background: var(--charcoal);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.07);
+      overflow: hidden;
+      padding: 10px 0;
+    }
     .trust-bar-inner {
       display: flex;
       gap: 48px;
       animation: ticker 28s linear infinite;
       white-space: nowrap;
     }
-
-    .trust-bar-inner:hover { animation-play-state: paused; }
-
+    .trust-bar-inner:hover {
+      animation-play-state: paused;
+    }
     @keyframes ticker {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-
     .trust-item {
       display: flex;
       align-items: center;
@@ -125,10 +153,12 @@
       text-transform: uppercase;
       flex-shrink: 0;
     }
+    .trust-item svg {
+      color: var(--gold);
+      flex-shrink: 0;
+    }
 
-    .trust-item svg { color: var(--gold); flex-shrink: 0; }
-
-    /* ── HERO ── */
+    /* ===== Hero ===== */
     .hero {
       position: relative;
       min-height: 92vh;
@@ -137,25 +167,23 @@
       justify-content: center;
       padding: 80px 48px 80px;
       overflow: hidden;
+      background: var(--navy);
     }
-
     .hero-bg {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 55% at 70% 50%, rgba(198,168,91,0.055) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(30,41,59,0.8) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 55% at 70% 50%, rgba(198, 168, 91, 0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(30, 41, 59, 0.8) 0%, transparent 60%);
       pointer-events: none;
     }
-
-    /* subtle grid lines */
     .hero-bg::after {
       content: '';
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(226,232,240,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(226,232,240,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(226, 232, 240, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(226, 232, 240, 0.03) 1px, transparent 1px);
       background-size: 80px 80px;
     }
 
@@ -165,38 +193,43 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 28px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
     }
-
     .hero-headline {
-      font-family: 'Sora', sans-serif;
-      font-size: clamp(52px, 7vw, 96px);
+      font-family: var(--font-heading);
+      font-size: clamp(48px, 7vw, 88px);
       font-weight: 700;
       line-height: 1.0;
       letter-spacing: -0.02em;
       color: var(--white);
       max-width: 720px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
     }
-
     .hero-headline em {
       font-style: normal;
       color: var(--gold);
     }
-
     .hero-sub {
       font-size: 17px;
       font-weight: 300;
       color: var(--gray-mid);
-      max-width: 480px;
+      max-width: 520px;
       line-height: 1.7;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 2;
     }
-
     .hero-actions {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+      flex-wrap: wrap;
     }
 
     .btn-primary {
@@ -210,13 +243,14 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 16px 32px;
-      border-radius: 3px;
+      border-radius: 4px;
       text-decoration: none;
       transition: opacity 0.2s, transform 0.2s;
     }
-
-    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
-
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
     .btn-ghost {
       display: inline-flex;
       align-items: center;
@@ -230,21 +264,24 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-
-    .btn-ghost:hover { color: var(--white); }
+    .btn-ghost:hover {
+      color: var(--white);
+    }
 
     .hero-badges {
       display: flex;
       gap: 12px;
-      margin-top: 56px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
     }
-
     .badge {
       display: flex;
       align-items: center;
       gap: 7px;
-      background: rgba(226,232,240,0.04);
-      border: 1px solid rgba(226,232,240,0.09);
+      background: rgba(226, 232, 240, 0.05);
+      border: 1px solid rgba(226, 232, 240, 0.09);
       border-radius: 100px;
       padding: 7px 14px;
       font-size: 11.5px;
@@ -252,16 +289,17 @@
       color: var(--gray-mid);
       letter-spacing: 0.04em;
     }
-
     .badge-dot {
-      width: 5px; height: 5px;
+      width: 5px;
+      height: 5px;
       background: var(--gold);
       border-radius: 50%;
     }
 
-    /* ── SECTION SHARED ── */
-    section { padding: 100px 48px; }
-
+    /* ===== 通用 Section ===== */
+    section {
+      padding: 100px 48px;
+    }
     .section-label {
       font-size: 11px;
       font-weight: 600;
@@ -270,17 +308,18 @@
       color: var(--gold);
       margin-bottom: 16px;
     }
-
     .section-title {
-      font-family: 'Sora', sans-serif;
+      font-family: var(--font-heading);
       font-size: clamp(32px, 4vw, 52px);
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.1;
-      color: var(--white);
+      color: var(--heading-grey);
       max-width: 560px;
     }
-
+    .section-title.light {
+      color: var(--white);
+    }
     .section-sub {
       font-size: 16px;
       color: var(--gray-mid);
@@ -288,117 +327,53 @@
       margin-top: 16px;
       line-height: 1.7;
     }
-
-    .divider {
-      border: none;
-      border-top: 1px solid rgba(226,232,240,0.07);
+    .section-sub.light {
+      color: rgba(255, 255, 255, 0.7);
     }
 
-    /* ── TRUST PILLARS ── */
-    #trust { background: var(--charcoal); }
-
-    .trust-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 64px;
+    /* ===== Collections ===== */
+    #collections {
+      background: var(--cream);
     }
-
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-
-    .pillar {
-      background: var(--navy);
-      padding: 48px 40px;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
-    }
-
-    .pillar:hover { background: rgba(15,23,42,0.7); }
-
-    .pillar::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-
-    .pillar:hover::before { transform: scaleX(1); }
-
-    .pillar-num {
-      font-family: 'Sora', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      color: var(--gold);
-      margin-bottom: 32px;
-      opacity: 0.7;
-    }
-
-    .pillar-title {
-      font-family: 'Sora', sans-serif;
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 16px;
-      letter-spacing: -0.01em;
-    }
-
-    .pillar-text {
-      font-size: 15px;
-      color: var(--gray-mid);
-      line-height: 1.7;
-    }
-
-    /* ── COLLECTIONS ── */
-    #collections { background: var(--navy); }
-
     .collections-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       margin-bottom: 56px;
+      flex-wrap: wrap;
+      gap: 20px;
     }
-
     .collections-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 20px;
     }
-
     .collection-card {
       position: relative;
-      background: var(--charcoal);
-      border: 1px solid rgba(226,232,240,0.07);
-      border-radius: 4px;
-      padding: 48px 40px;
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+      padding: 48px 36px;
       overflow: hidden;
       text-decoration: none;
       display: block;
       transition: border-color 0.3s, transform 0.3s;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
     }
-
     .collection-card:hover {
       border-color: var(--gold-border);
       transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
     }
-
     .collection-card-glow {
       position: absolute;
-      top: -60px; right: -60px;
-      width: 200px; height: 200px;
-      background: radial-gradient(circle, rgba(198,168,91,0.1) 0%, transparent 70%);
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(198, 168, 91, 0.08) 0%, transparent 70%);
       pointer-events: none;
     }
-
     .collection-tag {
       display: inline-block;
       font-size: 10.5px;
@@ -409,25 +384,22 @@
       border: 1px solid var(--gold-border);
       border-radius: 100px;
       padding: 4px 12px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
-
     .collection-name {
-      font-family: 'Sora', sans-serif;
+      font-family: var(--font-heading);
       font-size: 24px;
       font-weight: 700;
-      color: var(--white);
+      color: var(--heading-grey);
       letter-spacing: -0.01em;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
-
     .collection-desc {
       font-size: 14px;
-      color: var(--gray-mid);
+      color: var(--body-grey);
       line-height: 1.7;
-      margin-bottom: 36px;
+      margin-bottom: 28px;
     }
-
     .collection-link {
       display: inline-flex;
       align-items: center;
@@ -438,221 +410,150 @@
       text-transform: uppercase;
       color: var(--gold);
     }
+    .collection-link svg {
+      transition: transform 0.2s;
+    }
+    .collection-card:hover .collection-link svg {
+      transform: translateX(4px);
+    }
 
-    .collection-link svg { transition: transform 0.2s; }
-    .collection-card:hover .collection-link svg { transform: translateX(4px); }
-
-    /* ── WHY AUREVIA ── */
-    #why { background: var(--charcoal); }
-
+    /* ===== Why AUREVIA ===== */
+    #why {
+      background: var(--charcoal);
+    }
+    #why .section-title {
+      color: var(--white);
+    }
+    #why .section-sub {
+      color: rgba(255, 255, 255, 0.6);
+    }
     .why-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      gap: 60px;
       align-items: start;
-      margin-top: 64px;
+      margin-top: 56px;
     }
-
     .why-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 0;
     }
-
     .why-item {
       display: flex;
       align-items: flex-start;
       gap: 20px;
       padding: 28px 0;
-      border-bottom: 1px solid rgba(226,232,240,0.07);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.07);
     }
-
-    .why-item:first-child { border-top: 1px solid rgba(226,232,240,0.07); }
-
+    .why-item:first-child {
+      border-top: 1px solid rgba(226, 232, 240, 0.07);
+    }
     .why-icon {
-      width: 36px; height: 36px;
+      width: 40px;
+      height: 40px;
       background: var(--gold-dim);
       border: 1px solid var(--gold-border);
-      border-radius: 3px;
+      border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       margin-top: 2px;
     }
-
-    .why-icon svg { color: var(--gold); }
-
+    .why-icon svg {
+      color: var(--gold);
+    }
     .why-item-title {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 600;
       color: var(--white);
       margin-bottom: 4px;
     }
-
     .why-item-text {
-      font-size: 13.5px;
-      color: var(--gray-mid);
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
       line-height: 1.6;
     }
-
     .why-quote {
       background: var(--navy);
-      border: 1px solid rgba(226,232,240,0.08);
+      border: 1px solid rgba(226, 232, 240, 0.08);
       border-left: 3px solid var(--gold);
-      border-radius: 4px;
-      padding: 40px;
+      border-radius: 6px;
+      padding: 36px 40px;
       margin-bottom: 20px;
     }
-
     .why-quote p {
-      font-family: 'Sora', sans-serif;
+      font-family: var(--font-heading);
       font-size: 18px;
       font-weight: 300;
       color: var(--gray);
       line-height: 1.7;
       font-style: italic;
     }
-
     .why-quote-source {
-      margin-top: 20px;
+      margin-top: 16px;
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--gray-mid);
     }
-
     .cert-row {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
-
     .cert-pill {
       display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(226,232,240,0.04);
-      border: 1px solid rgba(226,232,240,0.09);
+      background: rgba(226, 232, 240, 0.05);
+      border: 1px solid rgba(226, 232, 240, 0.09);
       border-radius: 100px;
       padding: 8px 16px;
       font-size: 12px;
       font-weight: 500;
       color: var(--gray-mid);
     }
-
     .cert-check {
       color: var(--gold);
     }
 
-    /* ── EMAIL CAPTURE ── */
-    #email-capture {
-      background: var(--navy);
-      text-align: center;
-      padding: 100px 48px;
-    }
-
-    .email-inner {
-      max-width: 540px;
-      margin: 0 auto;
-    }
-
-    .email-inner .section-title {
-      max-width: 100%;
-      text-align: center;
-      margin: 0 auto 12px;
-    }
-
-    .email-inner .section-sub {
-      max-width: 100%;
-      text-align: center;
-      margin: 0 auto 40px;
-    }
-
-    .email-form {
-      display: flex;
-      gap: 10px;
-    }
-
-    .email-input {
-      flex: 1;
-      background: var(--charcoal);
-      border: 1px solid rgba(226,232,240,0.1);
-      border-radius: 3px;
-      padding: 14px 18px;
-      font-size: 14px;
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .email-input::placeholder { color: var(--gray-dim); }
-    .email-input:focus { border-color: var(--gold-border); }
-
-    .email-submit {
-      background: var(--gold);
-      color: var(--navy);
-      border: none;
-      border-radius: 3px;
-      padding: 14px 28px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      transition: opacity 0.2s;
-    }
-
-    .email-submit:hover { opacity: 0.88; }
-
-    .email-note {
-      margin-top: 14px;
-      font-size: 12px;
-      color: var(--gray-dim);
-    }
-
-    /* ── ABOUT STRIP ── */
+    /* ===== About Strip ===== */
     #about {
-      background: var(--charcoal);
-      border-top: 1px solid rgba(226,232,240,0.07);
+      background: var(--cream);
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
     }
-
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      gap: 60px;
       align-items: center;
     }
-
     .about-visual {
       position: relative;
-      height: 320px;
-      border-radius: 4px;
+      min-height: 300px;
+      border-radius: 8px;
       overflow: hidden;
-      background: var(--navy);
-      border: 1px solid rgba(226,232,240,0.08);
+      background: var(--charcoal);
+      border: 1px solid rgba(226, 232, 240, 0.08);
       display: flex;
       align-items: center;
       justify-content: center;
     }
-
     .about-visual-inner {
       text-align: center;
     }
-
     .about-monogram {
-      font-family: 'Sora', sans-serif;
-      font-size: 72px;
+      font-family: var(--font-heading);
+      font-size: 64px;
       font-weight: 700;
-      color: rgba(198,168,91,0.12);
+      color: rgba(198, 168, 91, 0.12);
       letter-spacing: 0.08em;
       user-select: none;
     }
-
     .about-tagline {
       font-size: 11px;
       font-weight: 600;
@@ -661,68 +562,142 @@
       color: var(--gold);
       margin-top: 4px;
     }
-
-    /* Subtle glow */
-    .about-visual::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at center, rgba(198,168,91,0.07) 0%, transparent 65%);
-    }
-
-    .about-text .section-title { max-width: 100%; }
-
     .about-body {
       font-size: 15px;
-      color: var(--gray-mid);
+      color: var(--body-grey);
       line-height: 1.8;
       margin-top: 20px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
-    /* ── FOOTER ── */
+    /* ===== FAQ ===== */
+    #faq {
+      background: var(--cream);
+      padding-top: 80px;
+      padding-bottom: 100px;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 60px;
+      margin-top: 48px;
+    }
+    .faq-item h6 {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--heading-grey);
+      margin-bottom: 8px;
+    }
+    .faq-item p {
+      font-size: 14px;
+      color: var(--body-grey);
+      line-height: 1.7;
+    }
+
+    /* ===== Newsletter ===== */
+    #newsletter {
+      background: var(--charcoal);
+      text-align: center;
+      padding: 80px 48px 100px;
+    }
+    .newsletter-inner {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .newsletter-inner .section-title {
+      max-width: 100%;
+      margin: 0 auto 12px;
+    }
+    .newsletter-inner .section-sub {
+      max-width: 100%;
+      margin: 0 auto 32px;
+    }
+    .email-form {
+      display: flex;
+      gap: 10px;
+    }
+    .email-input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      padding: 14px 18px;
+      font-size: 14px;
+      color: var(--white);
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .email-input::placeholder {
+      color: var(--gray-mid);
+    }
+    .email-input:focus {
+      border-color: var(--gold-border);
+    }
+    .email-submit {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: 4px;
+      padding: 14px 28px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: opacity 0.2s;
+    }
+    .email-submit:hover {
+      opacity: 0.88;
+    }
+    .email-note {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--gray-mid);
+    }
+
+    /* ===== Footer ===== */
     footer {
       background: #080F1C;
-      border-top: 1px solid rgba(226,232,240,0.06);
+      border-top: 1px solid rgba(226, 232, 240, 0.06);
       padding: 64px 48px 32px;
     }
-
     .footer-top {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
       padding-bottom: 48px;
-      border-bottom: 1px solid rgba(226,232,240,0.06);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.06);
     }
-
     .footer-brand-name {
-      font-family: 'Sora', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 17px;
+      font-size: 18px;
       letter-spacing: 0.15em;
       color: var(--white);
       margin-bottom: 12px;
     }
-
-    .footer-brand-name span { color: var(--gold); }
-
+    .footer-brand-name span {
+      color: var(--gold);
+    }
     .footer-tagline {
-      font-size: 12.5px;
+      font-size: 13px;
       color: var(--gray-dim);
       line-height: 1.6;
       max-width: 220px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
-
     .footer-social {
       display: flex;
       gap: 12px;
     }
-
     .social-icon {
-      width: 34px; height: 34px;
-      border: 1px solid rgba(226,232,240,0.1);
-      border-radius: 3px;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(226, 232, 240, 0.1);
+      border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -730,9 +705,10 @@
       transition: border-color 0.2s, color 0.2s;
       text-decoration: none;
     }
-
-    .social-icon:hover { border-color: var(--gold-border); color: var(--gold); }
-
+    .social-icon:hover {
+      border-color: var(--gold-border);
+      color: var(--gold);
+    }
     .footer-col h4 {
       font-size: 11px;
       font-weight: 600;
@@ -741,32 +717,33 @@
       color: var(--gray-mid);
       margin-bottom: 20px;
     }
-
-    .footer-col ul { list-style: none; }
-
-    .footer-col li { margin-bottom: 10px; }
-
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col li {
+      margin-bottom: 10px;
+    }
     .footer-col a {
       font-size: 13.5px;
       color: var(--gray-dim);
       text-decoration: none;
       transition: color 0.2s;
     }
-
-    .footer-col a:hover { color: var(--white); }
-
+    .footer-col a:hover {
+      color: var(--white);
+    }
     .footer-bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding-top: 28px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
-
     .footer-copy {
       font-size: 12px;
       color: var(--gray-dim);
     }
-
     .footer-gold-text {
       font-size: 11px;
       font-weight: 600;
@@ -776,370 +753,392 @@
       opacity: 0.6;
     }
 
-    /* ── SCROLL REVEAL ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
-      .trust-bar-inner { animation: none; }
-    }
-
-    /* ── RESPONSIVE ── */
+    /* ===== 响应式 ===== */
     @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      nav .nav-links { display: none; }
-      section { padding: 72px 24px; }
-      .hero { padding: 48px 24px 64px; }
-      .pillars { grid-template-columns: 1fr; gap: 2px; }
-      .collections-grid { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr; gap: 40px; }
-      .about-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .trust-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .collections-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .hero-badges { flex-wrap: wrap; }
-      .email-form { flex-direction: column; }
+      .navbar {
+        padding: 0 20px;
+        height: 64px;
+      }
+      .nav-links {
+        display: none;
+      }
+      section {
+        padding: 60px 20px;
+      }
+      .hero {
+        padding: 40px 20px 60px;
+        min-height: 80vh;
+      }
+      .collections-grid {
+        grid-template-columns: 1fr;
+      }
+      .why-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn-primary,
+      .btn-ghost {
+        width: 100%;
+        justify-content: center;
+      }
+      .email-form {
+        flex-direction: column;
+      }
+      #newsletter {
+        padding: 60px 20px 80px;
+      }
+      #faq {
+        padding: 60px 20px 80px;
+      }
+      .hero-badges {
+        gap: 8px;
+      }
+      .collections-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 0 16px;
+        height: 58px;
+      }
+      .nav-logo {
+        font-size: 16px;
+      }
+      .nav-cta {
+        font-size: 11px;
+        padding: 8px 16px;
+      }
+      .hero-headline {
+        font-size: 32px;
+      }
+      .hero-sub {
+        font-size: 15px;
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .hero-badges {
+        margin-top: 28px;
+      }
+      .trust-item {
+        font-size: 10px;
+        gap: 5px;
+      }
+      .trust-bar-inner {
+        gap: 24px;
+      }
+      .collection-card {
+        padding: 32px 24px;
+      }
+      .why-quote {
+        padding: 24px;
+      }
+      .about-visual {
+        min-height: 200px;
+      }
+      .about-monogram {
+        font-size: 40px;
+      }
+      .section-title {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">AURE<span>V</span>IA</a>
-  <ul class="nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#collections">Collections</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#">Education</a></li>
-    <li><a href="#">FAQ</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-  <a href="#collections" class="nav-cta">Explore</a>
-</nav>
-
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-bar-inner">
-    <!-- duplicated for seamless loop -->
-    <span class="trust-item">
-      <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-      Batch-Verified Standards
-    </span>
-    <span class="trust-item">
-      <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-      Premium Quality Standards
-    </span>
-    <span class="trust-item">
-      <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-      Science-Informed Formulations
-    </span>
-    <span class="trust-item">
-      <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-      Transparent Sourcing & Documentation
-    </span>
-    <span class="trust-item">
-      <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-      Independent Lab Tested
-    </span>
-    <span class="trust-item">
-      <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-      Research-Focused Education
-    </span>
-    <!-- duplicate -->
-    <span class="trust-item">
-      <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-      Batch-Verified Standards
-    </span>
-    <span class="trust-item">
-      <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-      Premium Quality Standards
-    </span>
-    <span class="trust-item">
-      <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-      Science-Informed Formulations
-    </span>
-    <span class="trust-item">
-      <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-      Transparent Sourcing & Documentation
-    </span>
-    <span class="trust-item">
-      <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-      Independent Lab Tested
-    </span>
-    <span class="trust-item">
-      <svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-      Research-Focused Education
-    </span>
-  </div>
-</div>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-eyebrow">Premium Longevity · Cellular Performance</div>
-  <h1 class="hero-headline">
-    Cellular<br/>Precision.<br/><em>Elevated.</em>
-  </h1>
-  <p class="hero-sub">
-    Science-driven wellness solutions designed for recovery, vitality, and long-term performance.
-  </p>
-  <div class="hero-actions">
-    <a href="#collections" class="btn-primary">
-      Explore Collections
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-    <a href="#about" class="btn-ghost">
-      Our Science
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-  <div class="hero-badges">
-    <span class="badge"><span class="badge-dot"></span>Batch Verified</span>
-    <span class="badge"><span class="badge-dot"></span>Third-Party Tested</span>
-    <span class="badge"><span class="badge-dot"></span>COA Available</span>
-    <span class="badge"><span class="badge-dot"></span>Transparent Sourcing</span>
-  </div>
-</section>
-
-<!-- TRUST PILLARS -->
-<section id="trust">
-  <div class="trust-header reveal">
-    <div>
-      <div class="section-label">Foundation</div>
-      <h2 class="section-title">Built on uncompromising trust</h2>
-    </div>
-    <p class="section-sub" style="margin-top:0;">Every product reflects our commitment to quality, transparency, and education.</p>
-  </div>
-  <div class="pillars">
-    <div class="pillar reveal">
-      <div class="pillar-num">01</div>
-      <div class="pillar-title">Quality</div>
-      <p class="pillar-text">Batch-verified standards with independent third-party testing. Each shipment is produced under strict protocols and fully traceable from source to delivery.</p>
-    </div>
-    <div class="pillar reveal" style="transition-delay:0.1s">
-      <div class="pillar-num">02</div>
-      <div class="pillar-title">Transparency</div>
-      <p class="pillar-text">Clear sourcing and complete documentation. Full visibility into ingredients, origins, certifications, and certificates of analysis — available for every product.</p>
-    </div>
-    <div class="pillar reveal" style="transition-delay:0.2s">
-      <div class="pillar-num">03</div>
-      <div class="pillar-title">Education</div>
-      <p class="pillar-text">Research-focused learning resources to help you make informed wellness decisions. Science presented clearly, without compromise or unnecessary complexity.</p>
-    </div>
-  </div>
-</section>
-
-<hr class="divider" />
-
-<!-- COLLECTIONS -->
-<section id="collections">
-  <div class="collections-header reveal">
-    <div>
-      <div class="section-label">Collections</div>
-      <h2 class="section-title">Precision formulations for distinct wellness goals</h2>
-    </div>
-    <a href="#" class="btn-ghost">View all collections
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-  <div class="collections-grid">
-    <a href="#" class="collection-card reveal">
-      <div class="collection-card-glow"></div>
-      <div class="collection-tag">Longevity</div>
-      <div class="collection-name">Cellular Longevity</div>
-      <p class="collection-desc">Support your long-term wellness journey with advanced cellular health solutions designed for sustained vitality and healthy aging.</p>
-      <span class="collection-link">Discover
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </span>
-    </a>
-    <a href="#" class="collection-card reveal" style="transition-delay:0.1s">
-      <div class="collection-card-glow"></div>
-      <div class="collection-tag">Recovery</div>
-      <div class="collection-name">Recovery & Regeneration</div>
-      <p class="collection-desc">Focused on restoration, performance, and revitalizing the body's innate repair systems — for those who demand more from their recovery.</p>
-      <span class="collection-link">Discover
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </span>
-    </a>
-    <a href="#" class="collection-card reveal" style="transition-delay:0.2s">
-      <div class="collection-card-glow"></div>
-      <div class="collection-tag">Aesthetic</div>
-      <div class="collection-name">Aesthetic Optimization</div>
-      <p class="collection-desc">Wellness and appearance-focused solutions for holistic radiance — where inner cellular health meets outward expression.</p>
-      <span class="collection-link">Discover
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </span>
-    </a>
-  </div>
-</section>
-
-<!-- WHY AUREVIA -->
-<section id="why">
-  <div class="section-label reveal">Why AUREVIA</div>
-  <h2 class="section-title reveal">Redefining the standard for premium wellness</h2>
-  <div class="why-grid">
-    <ul class="why-list">
-      <li class="why-item reveal">
-        <div class="why-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        </div>
-        <div>
-          <div class="why-item-title">Premium Quality Standards</div>
-          <p class="why-item-text">Produced under strict protocols with independent batch verification — every time.</p>
-        </div>
-      </li>
-      <li class="why-item reveal" style="transition-delay:0.05s">
-        <div class="why-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-        </div>
-        <div>
-          <div class="why-item-title">Science-Informed Approach</div>
-          <p class="why-item-text">Each formulation is grounded in current cellular biology and longevity research.</p>
-        </div>
-      </li>
-      <li class="why-item reveal" style="transition-delay:0.1s">
-        <div class="why-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-        </div>
-        <div>
-          <div class="why-item-title">Transparent Sourcing</div>
-          <p class="why-item-text">Full visibility into every ingredient — origins, certifications, and chain of custody.</p>
-        </div>
-      </li>
-      <li class="why-item reveal" style="transition-delay:0.15s">
-        <div class="why-icon">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-        </div>
-        <div>
-          <div class="why-item-title">Educational Resources</div>
-          <p class="why-item-text">Research-focused guides and documentation to help you make truly informed decisions.</p>
-        </div>
-      </li>
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar">
+    <a href="#" class="nav-logo">AURE<span>V</span>IA</a>
+    <ul class="nav-links">
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#why">Why AUREVIA</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#newsletter">Community</a></li>
     </ul>
-    <div class="reveal" style="transition-delay:0.2s">
-      <div class="why-quote">
-        <p>"Developed for individuals seeking a science-informed approach to wellness and recovery. Produced according to strict quality standards with batch verification."</p>
-        <div class="why-quote-source">— AUREVIA Standard</div>
-      </div>
-      <div class="cert-row">
-        <span class="cert-pill"><span class="cert-check">✓</span> Independent Lab Tested</span>
-        <span class="cert-pill"><span class="cert-check">✓</span> COA Available</span>
-        <span class="cert-pill"><span class="cert-check">✓</span> Batch Traceable</span>
-        <span class="cert-pill"><span class="cert-check">✓</span> Premium Grade</span>
-      </div>
+    <a href="#collections" class="nav-cta">Explore</a>
+  </nav>
+
+  <!-- ===== TRUST BAR ===== -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Quality Verified</span>
+      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Science-Informed</span>
+      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Transparent Sourcing</span>
+      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Educational Resources</span>
+      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Integrity &amp; Excellence</span>
+      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Community Focused</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Quality Verified</span>
+      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Science-Informed</span>
+      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Transparent Sourcing</span>
+      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Educational Resources</span>
+      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Integrity &amp; Excellence</span>
+      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Community Focused</span>
     </div>
   </div>
-</section>
 
-<!-- EMAIL CAPTURE -->
-<section id="email-capture">
-  <div class="email-inner">
-    <div class="section-label">Community</div>
-    <h2 class="section-title reveal">Join the AUREVIA Community</h2>
-    <p class="section-sub reveal">Receive educational content, product updates, and wellness insights — curated for those who take longevity seriously.</p>
-    <div class="email-form reveal">
-      <input type="email" class="email-input" placeholder="Enter your email address" />
-      <button class="email-submit">Subscribe</button>
-    </div>
-    <p class="email-note">We respect your privacy. Unsubscribe anytime.</p>
-  </div>
-</section>
-
-<!-- ABOUT STRIP -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-visual reveal">
-      <div class="about-visual-inner">
-        <div class="about-monogram">AUREVIA</div>
-        <div class="about-tagline">Science at the Cellular Level</div>
-      </div>
-    </div>
-    <div class="about-text reveal" style="transition-delay:0.15s">
-      <div class="section-label">About</div>
-      <h2 class="section-title">Advancing Wellness Through Science</h2>
-      <p class="about-body">AUREVIA was founded to bring a higher standard of quality, transparency, and education to the wellness space. Our mission is to help individuals make informed decisions through science-driven resources and carefully selected products.<br/><br/>We sit between luxury wellness brands and the frontier of longevity science — offering cellular performance tools once accessible only to insiders.</p>
-      <a href="#" class="btn-ghost">Learn more about our approach
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-eyebrow">Premium Longevity · Cellular Performance</div>
+    <h1 class="hero-headline">Cellular<br />Precision.<br /><em>Elevated.</em></h1>
+    <p class="hero-sub">
+      AUREVIA combines science-informed wellness with uncompromising quality to support vitality, recovery, and long-term well-being.<br /><br />
+      Thoughtfully curated solutions designed for those seeking a more intentional approach to health.
+    </p>
+    <div class="hero-actions">
+      <a href="#collections" class="btn-primary">
+        Explore Collections
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+      </a>
+      <a href="#why" class="btn-ghost">
+        Learn More
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
       </a>
     </div>
-  </div>
-</section>
+    <div class="hero-badges">
+      <span class="badge"><span class="badge-dot"></span>Quality Verified</span>
+      <span class="badge"><span class="badge-dot"></span>Science-Informed</span>
+      <span class="badge"><span class="badge-dot"></span>Transparent Sourcing</span>
+      <span class="badge"><span class="badge-dot"></span>Educational Resources</span>
+    </div>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-brand-name">AURE<span>V</span>IA</div>
-      <p class="footer-tagline">Cellular Precision. Elevated.<br/>Premium longevity & cellular performance.</p>
-      <div class="footer-social">
-        <a href="#" class="social-icon" aria-label="Instagram">
-          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
-        <a href="#" class="social-icon" aria-label="X">
-          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 5.828 5.45-5.828zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="#" class="social-icon" aria-label="LinkedIn">
-          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  <!-- ===== COLLECTIONS ===== -->
+  <section id="collections">
+    <div class="collections-header">
+      <div>
+        <div class="section-label">Collections</div>
+        <h2 class="section-title">Precision wellness for distinct goals</h2>
+      </div>
+      <a href="#" class="btn-ghost" style="color: var(--body-grey);">
+        View all collections
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+      </a>
+    </div>
+    <div class="collections-grid">
+      <!-- Cellular Longevity -->
+      <a href="#" class="collection-card">
+        <div class="collection-card-glow"></div>
+        <div class="collection-tag">Longevity</div>
+        <div class="collection-name">Cellular Longevity</div>
+        <p class="collection-desc">
+          Support your pursuit of long-term vitality through wellness solutions inspired by cellular health and modern longevity science. Designed for individuals who prioritize prevention, resilience, and sustainable well-being.
+        </p>
+        <span class="collection-link">
+          Discover
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        </span>
+      </a>
+      <!-- Recovery & Regeneration -->
+      <a href="#" class="collection-card">
+        <div class="collection-card-glow"></div>
+        <div class="collection-tag">Recovery</div>
+        <div class="collection-name">Recovery &amp; Regeneration</div>
+        <p class="collection-desc">
+          Created for active lifestyles and everyday restoration, our recovery collection focuses on supporting balance, resilience, and renewal. Helping you perform at your best while maintaining long-term wellness.
+        </p>
+        <span class="collection-link">
+          Discover
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        </span>
+      </a>
+      <!-- Aesthetic Wellness -->
+      <a href="#" class="collection-card">
+        <div class="collection-card-glow"></div>
+        <div class="collection-tag">Aesthetic</div>
+        <div class="collection-name">Aesthetic Wellness</div>
+        <p class="collection-desc">
+          Beauty and wellness are deeply connected. Our aesthetic collection is designed to complement healthy routines that support confidence, radiance, and self-care. A refined approach to feeling your best, inside and out.
+        </p>
+        <span class="collection-link">
+          Discover
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== WHY AUREVIA ===== -->
+  <section id="why">
+    <div class="section-label">Why AUREVIA</div>
+    <h2 class="section-title">Built on uncompromising quality and trust</h2>
+    <div class="why-grid">
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-icon">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <div class="why-item-title">Quality</div>
+            <p class="why-item-text">Every product is sourced according to rigorous quality standards and selected with attention to consistency and excellence.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-icon">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          </div>
+          <div>
+            <div class="why-item-title">Transparency</div>
+            <p class="why-item-text">We believe trust begins with openness. Our commitment to clear documentation and responsible sourcing is at the heart of everything we do.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-icon">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <div>
+            <div class="why-item-title">Education</div>
+            <p class="why-item-text">Empowering informed decisions through accessible, science-informed resources and wellness education.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-icon">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <div>
+            <div class="why-item-title">Integrity</div>
+            <p class="why-item-text">We prioritize long-term relationships over short-term trends, guided by honesty, responsibility, and continuous improvement.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-icon">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          </div>
+          <div>
+            <div class="why-item-title">Innovation</div>
+            <p class="why-item-text">Inspired by emerging wellness science while maintaining a thoughtful and measured approach to quality and safety.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-icon">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <div>
+            <div class="why-item-title">Community</div>
+            <p class="why-item-text">AUREVIA is built for individuals who value personal growth, vitality, and intentional living.</p>
+          </div>
+        </li>
+      </ul>
+      <div>
+        <div class="why-quote">
+          <p>"AUREVIA represents a new standard in wellness—where quality, transparency, and science come together to support a more intentional approach to health and vitality."</p>
+          <div class="why-quote-source">— AUREVIA Philosophy</div>
+        </div>
+        <div class="cert-row">
+          <span class="cert-pill"><span class="cert-check">✓</span> Quality Verified</span>
+          <span class="cert-pill"><span class="cert-check">✓</span> Science-Informed</span>
+          <span class="cert-pill"><span class="cert-check">✓</span> Transparent Sourcing</span>
+          <span class="cert-pill"><span class="cert-check">✓</span> Educational Resources</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-visual-inner">
+          <div class="about-monogram">AUREVIA</div>
+          <div class="about-tagline">Science at the Cellular Level</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">About</div>
+        <h2 class="section-title">Advancing Wellness Through Science</h2>
+        <p class="about-body">
+          AUREVIA was founded to bring a higher standard of quality, transparency, and education to the wellness space. Our mission is to help individuals make informed decisions through science-driven resources and carefully selected products.<br /><br />
+          We sit between luxury wellness brands and the frontier of longevity science—offering cellular performance tools once accessible only to insiders.
+        </p>
+        <a href="#" class="btn-ghost" style="color: var(--body-grey);">
+          Learn more about our approach
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
         </a>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Explore</h4>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Collections</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Education</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Support</h4>
-      <ul>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Shipping Policy</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Science</h4>
-      <ul>
-        <li><a href="#">Research Hub</a></li>
-        <li><a href="#">Batch Reports</a></li>
-        <li><a href="#">Quality Standards</a></li>
-        <li><a href="#">COA Library</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p class="footer-copy">© 2026 AUREVIA — Premium Longevity & Cellular Performance</p>
-    <span class="footer-gold-text">Science at the Cellular Level</span>
-  </div>
-</footer>
+  </section>
 
-<script>
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
+  <!-- ===== FAQ ===== -->
+  <section id="faq">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h6>What is AUREVIA?</h6>
+        <p>AUREVIA is a premium wellness brand focused on quality, transparency, and science-informed approaches to vitality, recovery, and long-term well-being.</p>
+      </div>
+      <div class="faq-item">
+        <h6>What makes AUREVIA different?</h6>
+        <p>Our approach combines careful product selection, transparent standards, and educational resources designed to support informed wellness decisions.</p>
+      </div>
+      <div class="faq-item">
+        <h6>How do I choose the right collection?</h6>
+        <p>Each collection is designed around a different wellness goal. Explore our Learning Center for guidance or contact our team for general product information.</p>
+      </div>
+      <div class="faq-item">
+        <h6>Where can I learn more about your quality standards?</h6>
+        <p>We are committed to transparency and provide detailed information regarding sourcing, documentation, and quality practices whenever available.</p>
+      </div>
+      <div class="faq-item">
+        <h6>Do you offer educational resources?</h6>
+        <p>Yes. Our Education Center contains articles, guides, and research-informed content covering wellness, longevity, recovery, and healthy living.</p>
+      </div>
+      <div class="faq-item">
+        <h6>How can I stay updated?</h6>
+        <p>You can join our newsletter to receive wellness insights, educational content, and announcements regarding new collections and programs.</p>
+      </div>
+    </div>
+  </section>
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+  <!-- ===== NEWSLETTER ===== -->
+  <section id="newsletter">
+    <div class="newsletter-inner">
+      <div class="section-label" style="color: var(--gold);">Community</div>
+      <h2 class="section-title light">Join the AUREVIA Community</h2>
+      <p class="section-sub light">Receive wellness insights, educational content, and exclusive updates—curated for those who take longevity seriously.</p>
+      <form class="email-form">
+        <input type="email" class="email-input" placeholder="Enter your email address" />
+        <button class="email-submit">Subscribe</button>
+      </form>
+      <p class="email-note">We respect your privacy. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">AURE<span>V</span>IA</div>
+        <p class="footer-tagline">Cellular Precision. Elevated.<br />Premium longevity &amp; cellular performance.</p>
+        <div class="footer-social">
+          <a href="#" class="social-icon" aria-label="Instagram">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="X">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 5.828 5.45-5.828zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.0

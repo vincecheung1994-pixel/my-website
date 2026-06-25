@@ -1,1144 +1,1629 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AUREVIA | Cellular Precision. Elevated.</title>
   <meta name="description" content="AUREVIA combines science-informed wellness with uncompromising quality to support vitality, recovery, and long-term well-being." />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+
   <style>
-    /* ===== 基础重置 ===== */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    /* ============================================
+       AUREVIA DESIGN SYSTEM (PRESERVED)
+       ============================================ */
+
+    .skip-link {
+      position: absolute;
+      left: 0; top: 0;
+      background: #243447; color: #FAF7F2;
+      padding: 0.5rem 1rem; z-index: 1000;
+      transform: translateY(-120%);
+      transition: transform 0.2s ease;
     }
-    ...
-    :root {
-      --navy: #0F172A;
-      --charcoal: #1E293B;
-      --white: #F8FAFC;
-      --gray: #E2E8F0;
-      --gray-mid: #94A3B8;
-      --gray-dim: #475569;
-      --gold: #C6A85B;
-      --gold-dim: rgba(198, 168, 91, 0.15);
-      --gold-border: rgba(198, 168, 91, 0.3);
-      --cream: #FAF8F5;
-      --dark-cream: #F5F0E8;
-      --body-grey: #3D3A35;
-      --heading-grey: #1A1A18;
-      --font-body: 'Inter', sans-serif;
-      --font-heading: 'Sora', sans-serif;
+    .skip-link:focus { transform: translateY(0); }
+
+    .trust-bar {
+      background: #FAF7F2;
+      padding: 1rem 0;
+      border-bottom: 1px solid #EAE5DD;
+      overflow: hidden;
+    }
+    .trust-bar-inner {
+      display: flex; align-items: center; gap: 2rem;
+      animation: scroll 30s linear infinite;
+      white-space: nowrap;
+    }
+    .trust-bar-inner:hover { animation-play-state: paused; }
+    .trust-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.95rem; color: #3a4a5e; font-weight: 500;
+      flex-shrink: 0; text-transform: uppercase; letter-spacing: 0.02em;
+    }
+    .trust-item svg { color: #CBB68A; flex-shrink: 0; }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: var(--cream);
-      color: var(--heading-grey);
-      font-family: var(--font-body);
-      font-size: 16px;
+      background-color: #FAF7F2;
+      color: #243447;
+      font-family: 'Inter', 'Avenir', sans-serif;
+      font-weight: 400;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
 
-    /* ===== 导航栏 ===== */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      height: 72px;
-      background: rgba(15, 23, 42, 0.88);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.06);
+    a:focus, button:focus, input:focus, .btn:focus {
+      outline: 3px solid #CBB68A;
+      outline-offset: 2px;
+      border-radius: 2px;
     }
 
-    .nav-logo {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 20px;
-      letter-spacing: 0.15em;
-      color: var(--white);
-      text-decoration: none;
-    }
-    .nav-logo span {
-      color: var(--gold);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-      align-items: center;
-    }
-    .nav-links a {
-      font-size: 13px;
+    h1, h2, h3, .heading-font {
+      font-family: 'Cormorant Garamond', 'Canela', serif;
       font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--gray-mid);
+      letter-spacing: 0.02em;
+    }
+
+    h1 { font-size: 4rem; line-height: 1.1; font-weight: 600; }
+    h2 { font-size: 2.8rem; line-height: 1.2; font-weight: 500; margin-bottom: 1rem; }
+    h3 { font-size: 1.8rem; font-weight: 500; margin-bottom: 0.5rem; }
+
+    .subhead {
+      font-size: 1.25rem; font-weight: 300;
+      color: #3a4a5e; max-width: 680px;
+    }
+    .gold-accent { color: #CBB68A; }
+
+    .btn-group, .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.9rem 2.4rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500; font-size: 1rem;
       text-decoration: none;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover {
-      color: var(--white);
-    }
-
-    .nav-cta {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: var(--navy);
-      background: var(--gold);
-      padding: 10px 24px;
-      border-radius: 4px;
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: opacity 0.2s;
-    }
-    .nav-cta:hover {
-      opacity: 0.88;
-    }
-
-    /* ===== Trust Bar ===== */
-    .trust-bar {
-      margin-top: 72px;
-      background: var(--charcoal);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.07);
-      overflow: hidden;
-      padding: 10px 0;
-    }
-    .trust-bar-inner {
-      display: flex;
-      gap: 48px;
-      animation: ticker 28s linear infinite;
-      white-space: nowrap;
-    }
-    .trust-bar-inner:hover {
-      animation-play-state: paused;
-    }
-    @keyframes ticker {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      color: var(--gray-mid);
-      text-transform: uppercase;
-      flex-shrink: 0;
-    }
-    .trust-item svg {
-      color: var(--gold);
-      flex-shrink: 0;
-    }
-
-    /* ===== Hero ===== */
-    .hero {
-      position: relative;
-      min-height: 92vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 80px 48px 80px;
-      overflow: hidden;
-      background: var(--navy);
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 55% at 70% 50%, rgba(198, 168, 91, 0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(30, 41, 59, 0.8) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(226, 232, 240, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(226, 232, 240, 0.03) 1px, transparent 1px);
-      background-size: 80px 80px;
-    }
-
-    .hero-eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 2;
-    }
-    .hero-headline {
-      font-family: var(--font-heading);
-      font-size: clamp(48px, 7vw, 88px);
-      font-weight: 700;
-      line-height: 1.0;
-      letter-spacing: -0.02em;
-      color: var(--white);
-      max-width: 720px;
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 2;
-    }
-    .hero-headline em {
-      font-style: normal;
-      color: var(--gold);
-    }
-    .hero-sub {
-      font-size: 17px;
-      font-weight: 300;
-      color: var(--gray-mid);
-      max-width: 520px;
-      line-height: 1.7;
-      margin-bottom: 40px;
-      position: relative;
-      z-index: 2;
-    }
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      position: relative;
-      z-index: 2;
-      flex-wrap: wrap;
+      border: 1.5px solid #243447;
+      background: transparent; color: #243447;
+      transition: all 0.25s ease;
+      letter-spacing: 0.03em; border-radius: 2px;
+      cursor: pointer;
     }
 
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 16px 32px;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
+      background: #243447; color: #FAF7F2;
+      border-color: #243447;
     }
-    .btn-primary:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
+    .btn-primary:hover { background: #3a4a5e; border-color: #3a4a5e; }
+
+    .btn-outline, .btn-ghost {
+      background: transparent; color: #243447;
+      border-color: #243447;
     }
-    .btn-ghost {
-      display: inline-flex;
+    .btn-outline:hover, .btn-ghost:hover {
+      background: #243447; color: #FAF7F2;
+    }
+
+    .btn:disabled {
+      opacity: 0.4; cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    header {
+      padding: 1.8rem 0;
+      border-bottom: 1px solid #EAE5DD;
+      background: rgba(250, 247, 242, 0.95);
+      backdrop-filter: blur(8px);
+      position: relative;
+      z-index: 10;
+    }
+    .header-inner {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .logo-link {
+      display: flex; align-items: center;
+      text-decoration: none; gap: 0.5rem;
+    }
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 600;
+      color: #243447; letter-spacing: 0.06em;
+    }
+    .nav-links ul {
+      display: flex; gap: 2rem;
+      list-style: none; padding: 0; margin: 0;
       align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--gray-mid);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
+    }
+    .nav-links { font-size: 0.95rem; font-weight: 500; }
+    .nav-links a {
+      text-decoration: none; color: #243447;
       transition: color 0.2s;
     }
-    .btn-ghost:hover {
-      color: var(--white);
+    .nav-links a:hover { color: #CBB68A; }
+
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #EAE5DD;
+    }
+    section:last-of-type { border-bottom: none; }
+
+    .section-title { margin-bottom: 2.5rem; }
+    .section-title h2 { margin-bottom: 0.25rem; }
+    .section-title p { font-size: 1.1rem; color: #3a4a5e; max-width: 600px; }
+
+    /* ===== HERO WITH BACKGROUND IMAGE ===== */
+    .hero {
+      position: relative;
+      padding: 6rem 0 7rem 0;
+      overflow: hidden;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #EAE5DD;
+    }
+
+    /* 背景图片容器 - 居中显示 */
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* 半透明遮罩让文字清晰可读 */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(250, 247, 242, 0.82);
+      z-index: 1;
+    }
+
+    /* Hero 内容在背景之上 - 靠左对齐 */
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      align-items: flex-start;  /* 内容靠左对齐 */
+      text-align: left;         /* 文字左对齐 */
+    }
+
+    .hero h1 {
+      max-width: 800px;
+      color: #243447;
+      text-align: left;
+    }
+
+    .hero .subhead {
+      font-size: 1.3rem;
+      margin-top: 0.5rem;
+      color: #3a4a5e;
+      text-align: left;
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      justify-content: flex-start;  /* 按钮左对齐 */
     }
 
     .hero-badges {
       display: flex;
-      gap: 12px;
-      margin-top: 48px;
       flex-wrap: wrap;
-      position: relative;
-      z-index: 2;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      color: #3a4a5e;
+      font-size: 0.95rem;
+      justify-content: flex-start;  /* 标签左对齐 */
     }
+
     .badge {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      background: rgba(226, 232, 240, 0.05);
-      border: 1px solid rgba(226, 232, 240, 0.09);
-      border-radius: 100px;
-      padding: 7px 14px;
-      font-size: 11.5px;
-      font-weight: 500;
-      color: var(--gray-mid);
-      letter-spacing: 0.04em;
-    }
-    .badge-dot {
-      width: 5px;
-      height: 5px;
-      background: var(--gold);
-      border-radius: 50%;
-    }
-
-    /* ===== 通用 Section ===== */
-    section {
-      padding: 100px 48px;
-    }
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: clamp(32px, 4vw, 52px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      color: var(--heading-grey);
-      max-width: 560px;
-    }
-    .section-title.light {
-      color: var(--white);
-    }
-    .section-sub {
-      font-size: 16px;
-      color: var(--gray-mid);
-      max-width: 440px;
-      margin-top: 16px;
-      line-height: 1.7;
-    }
-    .section-sub.light {
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    /* ===== Collections ===== */
-    #collections {
-      background: var(--cream);
-    }
-    .collections-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 56px;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .collections-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .collection-card {
-      position: relative;
-      background: var(--white);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      border-radius: 8px;
-      padding: 48px 36px;
-      overflow: hidden;
-      text-decoration: none;
-      display: block;
-      transition: border-color 0.3s, transform 0.3s;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-    }
-    .collection-card:hover {
-      border-color: var(--gold-border);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-    }
-    .collection-card-glow {
-      position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(198, 168, 91, 0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .collection-tag {
-      display: inline-block;
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid var(--gold-border);
-      border-radius: 100px;
-      padding: 4px 12px;
-      margin-bottom: 24px;
-    }
-    .collection-name {
-      font-family: var(--font-heading);
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--heading-grey);
-      letter-spacing: -0.01em;
-      margin-bottom: 12px;
-    }
-    .collection-desc {
-      font-size: 14px;
-      color: var(--body-grey);
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-    .collection-link {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .collection-link svg {
-      transition: transform 0.2s;
-    }
-    .collection-card:hover .collection-link svg {
-      transform: translateX(4px);
+      gap: 0.5rem;
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(203, 182, 138, 0.15);
+      color: #243447;
+      backdrop-filter: blur(4px);
     }
 
-    /* ===== Why AUREVIA ===== */
-    #why {
-      background: var(--charcoal);
-    }
-    #why .section-title {
-      color: var(--white);
-    }
-    #why .section-sub {
-      color: rgba(255, 255, 255, 0.6);
-    }
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start;
-      margin-top: 56px;
-    }
-    .why-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .why-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      padding: 28px 0;
-      border-bottom: 1px solid rgba(226, 232, 240, 0.07);
-    }
-    .why-item:first-child {
-      border-top: 1px solid rgba(226, 232, 240, 0.07);
-    }
-    .why-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--gold-dim);
-      border: 1px solid var(--gold-border);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .why-icon svg {
-      color: var(--gold);
-    }
-    .why-item-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 4px;
-    }
-    .why-item-text {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.6);
-      line-height: 1.6;
-    }
-    .why-quote {
-      background: var(--navy);
-      border: 1px solid rgba(226, 232, 240, 0.08);
-      border-left: 3px solid var(--gold);
-      border-radius: 6px;
-      padding: 36px 40px;
-      margin-bottom: 20px;
-    }
-    .why-quote p {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 300;
-      color: var(--gray);
-      line-height: 1.7;
-      font-style: italic;
-    }
-    .why-quote-source {
-      margin-top: 16px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray-mid);
-    }
-    .cert-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .cert-pill {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(226, 232, 240, 0.05);
-      border: 1px solid rgba(226, 232, 240, 0.09);
-      border-radius: 100px;
-      padding: 8px 16px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--gray-mid);
-    }
-    .cert-check {
-      color: var(--gold);
+    .badge-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: #CBB68A;
+      display: inline-block;
     }
 
-    /* ===== About Strip ===== */
-    #about {
-      background: var(--cream);
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .about-visual {
-      position: relative;
-      min-height: 300px;
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--charcoal);
-      border: 1px solid rgba(226, 232, 240, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .about-visual-inner {
+    .golden-path {
+      background-color: #EAE5DD;
+      padding: 4rem 2rem; border-radius: 4px;
       text-align: center;
     }
-    .about-monogram {
-      font-family: var(--font-heading);
-      font-size: 64px;
-      font-weight: 700;
-      color: rgba(198, 168, 91, 0.12);
-      letter-spacing: 0.08em;
-      user-select: none;
+    .golden-path blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem; font-weight: 400; font-style: italic;
+      color: #243447; max-width: 780px;
+      margin: 0 auto 1.2rem auto; line-height: 1.3;
     }
-    .about-tagline {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 4px;
-    }
-    .about-body {
-      font-size: 15px;
-      color: var(--body-grey);
-      line-height: 1.8;
-      margin-top: 20px;
-      margin-bottom: 28px;
+    .golden-path .attribution {
+      font-size: 1rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #4a5a6e;
     }
 
-    /* ===== FAQ ===== */
-    #faq {
-      background: var(--cream);
-      padding-top: 80px;
-      padding-bottom: 100px;
-    }
-    .faq-grid {
+    .pillar-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px 60px;
-      margin-top: 48px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2.5rem; margin-top: 1.5rem;
     }
-    .faq-item h6 {
-      font-family: var(--font-heading);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--heading-grey);
-      margin-bottom: 8px;
-    }
-    .faq-item p {
-      font-size: 14px;
-      color: var(--body-grey);
-      line-height: 1.7;
-    }
+    .pillar-item h3 { font-size: 1.8rem; font-weight: 500; margin-bottom: 0.25rem; }
+    .pillar-item p { color: #3a4a5e; font-size: 0.98rem; }
 
-    /* ===== Newsletter ===== */
-    #newsletter {
-      background: var(--charcoal);
-      text-align: center;
-      padding: 80px 48px 100px;
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem; margin-top: 1.5rem;
     }
-    .newsletter-inner {
-      max-width: 520px;
-      margin: 0 auto;
-    }
-    .newsletter-inner .section-title {
-      max-width: 100%;
-      margin: 0 auto 12px;
-    }
-    .newsletter-inner .section-sub {
-      max-width: 100%;
-      margin: 0 auto 32px;
-    }
-    .email-form {
-      display: flex;
-      gap: 10px;
-    }
-    .email-input {
-      flex: 1;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    .collection-card {
+      background: #EAE5DD; padding: 2rem 1.5rem;
       border-radius: 4px;
-      padding: 14px 18px;
-      font-size: 14px;
-      color: var(--white);
-      font-family: var(--font-body);
-      outline: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .collection-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .collection-card h3 { font-size: 1.6rem; margin-bottom: 0.3rem; }
+    .collection-card p { font-size: 0.95rem; color: #2a3a4e; }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem; margin: 1.5rem 0 0.5rem 0;
+    }
+    .value-item {
+      background: #FAF7F2; padding: 1.2rem 0.5rem;
+      text-align: center; border-radius: 4px;
+      border: 1px solid #EAE5DD;
       transition: border-color 0.2s;
     }
-    .email-input::placeholder {
-      color: var(--gray-mid);
+    .value-item:hover { border-color: #CBB68A; }
+    .value-item h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 500; margin-bottom: 0.1rem;
     }
-    .email-input:focus {
-      border-color: var(--gold-border);
-    }
-    .email-submit {
-      background: var(--gold);
-      color: var(--navy);
-      border: none;
-      border-radius: 4px;
-      padding: 14px 28px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      font-family: var(--font-body);
-      transition: opacity 0.2s;
-    }
-    .email-submit:hover {
-      opacity: 0.88;
-    }
-    .email-note {
-      margin-top: 14px;
-      font-size: 12px;
-      color: var(--gray-mid);
-    }
+    .value-item p { font-size: 0.9rem; color: #3a4a5e; }
 
-    /* ===== Footer ===== */
+    .newsletter-box {
+      background: #243447; color: #FAF7F2;
+      padding: 3.5rem 2.5rem; border-radius: 4px;
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+    }
+    .newsletter-box h2 { color: #FAF7F2; }
+    .newsletter-box p { max-width: 500px; margin: 0.5rem auto 1.5rem auto; color: #d0d9e0; }
+    .newsletter-input {
+      display: flex; flex-wrap: wrap; gap: 0.8rem;
+      justify-content: center; width: 100%; max-width: 480px;
+    }
+    .newsletter-input input {
+      flex: 2 1 200px; padding: 0.8rem 1.2rem;
+      border: none; font-family: 'Inter', sans-serif;
+      font-size: 1rem; background: #f0f3f5;
+      color: #243447; border-radius: 2px;
+    }
+    .newsletter-input .btn {
+      background: #CBB68A; border: none;
+      color: #243447; font-weight: 600; padding: 0.8rem 2rem;
+    }
+    .newsletter-input .btn:hover { background: #dac49e; }
+    .email-note { font-size: 0.85rem; color: #b0c0ce; margin-top: 0.8rem; }
+
     footer {
-      background: #080F1C;
-      border-top: 1px solid rgba(226, 232, 240, 0.06);
-      padding: 64px 48px 32px;
+      background: #243447; color: #d0d9e0;
+      padding: 3rem 0 1.5rem 0; margin-top: 2rem;
     }
-    .footer-top {
+    .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(226, 232, 240, 0.06);
-    }
-    .footer-brand-name {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: 0.15em;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-    .footer-brand-name span {
-      color: var(--gold);
-    }
-    .footer-tagline {
-      font-size: 13px;
-      color: var(--gray-dim);
-      line-height: 1.6;
-      max-width: 220px;
-      margin-bottom: 20px;
-    }
-    .footer-social {
-      display: flex;
-      gap: 12px;
-    }
-    .social-icon {
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(226, 232, 240, 0.1);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-dim);
-      transition: border-color 0.2s, color 0.2s;
-      text-decoration: none;
-    }
-    .social-icon:hover {
-      border-color: var(--gold-border);
-      color: var(--gold);
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2.5rem; margin-bottom: 2.5rem;
     }
     .footer-col h4 {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gray-mid);
-      margin-bottom: 20px;
-    }
-    .footer-col ul {
-      list-style: none;
-    }
-    .footer-col li {
-      margin-bottom: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 500;
+      color: #FAF7F2; margin-bottom: 1rem;
     }
     .footer-col a {
-      font-size: 13.5px;
-      color: var(--gray-dim);
-      text-decoration: none;
+      display: block; color: #b0c0ce;
+      text-decoration: none; font-size: 0.95rem;
+      margin-bottom: 0.4rem; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #CBB68A; }
+    .footer-bottom {
+      border-top: 1px solid #3a4a5e;
+      padding-top: 1.8rem;
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; align-items: center;
+      font-size: 0.9rem;
+    }
+    .footer-bottom .legal a {
+      color: #b0c0ce; text-decoration: none;
+      margin-left: 1.5rem; transition: color 0.2s;
+    }
+    .footer-bottom .legal a:hover { color: #CBB68A; }
+
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+    }
+
+    /* ============================================
+       MULTI-STEP QUIZ FORM
+       ============================================ */
+
+    .quiz-section {
+      background: #FAF7F2;
+      padding: 5rem 0;
+      border-bottom: 1px solid #EAE5DD;
+    }
+
+    .quiz-container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid #EAE5DD;
+      border-radius: 8px;
+      box-shadow: 0 4px 32px rgba(36, 52, 71, 0.06);
+      overflow: hidden;
+    }
+
+    .quiz-header {
+      background: #243447;
+      color: #FAF7F2;
+      padding: 2rem 2.5rem;
+      text-align: center;
+    }
+
+    .quiz-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: #FAF7F2;
+      margin-bottom: 0.25rem;
+    }
+
+    .quiz-header p {
+      font-size: 0.95rem;
+      color: #b0c0ce;
+      margin: 0;
+    }
+
+    .progress-bar-outer {
+      height: 4px;
+      background: #EAE5DD;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-bar-inner {
+      height: 100%;
+      background: #CBB68A;
+      border-radius: 2px;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .step-indicator {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 2.5rem;
+      background: #FAF7F2;
+      border-bottom: 1px solid #EAE5DD;
+    }
+
+    .step-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d0d5db;
+      transition: all 0.3s ease;
+    }
+
+    .step-dot.active {
+      background: #CBB68A;
+      box-shadow: 0 0 0 3px rgba(203, 182, 138, 0.25);
+    }
+
+    .step-dot.done {
+      background: #243447;
+    }
+
+    .quiz-body {
+      padding: 2.5rem;
+      min-height: 320px;
+    }
+
+    .quiz-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #243447;
+      margin-bottom: 0.5rem;
+    }
+
+    .quiz-body .step-subtitle {
+      font-size: 0.95rem;
+      color: #6b7d8e;
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #243447;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #243447;
+      background: #FAF7F2;
+      border: 1.5px solid #d0d5db;
+      border-radius: 4px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #CBB68A;
+      box-shadow: 0 0 0 3px rgba(203, 182, 138, 0.15);
+    }
+
+    .form-group input::placeholder {
+      color: #a0aab4;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group .input-hint {
+      font-size: 0.8rem;
+      color: #8a9aa8;
+      margin-top: 0.3rem;
+    }
+
+    .form-group .error-msg {
+      font-size: 0.8rem;
+      color: #c0392b;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    .form-group.error input,
+    .form-group.error select {
+      border-color: #c0392b;
+    }
+
+    .form-group.error .error-msg {
+      display: block;
+    }
+
+    .option-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .option-card {
+      position: relative;
+      padding: 1.5rem;
+      background: #FAF7F2;
+      border: 1.5px solid #d0d5db;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .option-card:hover {
+      border-color: #CBB68A;
+      background: rgba(203, 182, 138, 0.06);
+    }
+
+    .option-card.selected {
+      border-color: #243447;
+      background: #243447;
+      color: #FAF7F2;
+    }
+
+    .option-card.selected .option-label {
+      color: #CBB68A;
+    }
+
+    .option-card input[type="radio"],
+    .option-card input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .option-card .option-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .option-card .option-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .option-card .option-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6b7d8e;
       transition: color 0.2s;
     }
-    .footer-col a:hover {
-      color: var(--white);
-    }
-    .footer-bottom {
+
+    .quiz-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 28px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .footer-copy {
-      font-size: 12px;
-      color: var(--gray-dim);
-    }
-    .footer-gold-text {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      opacity: 0.6;
+      padding: 1.5rem 2.5rem;
+      background: #FAF7F2;
+      border-top: 1px solid #EAE5DD;
     }
 
-    /* ===== 响应式 ===== */
-    @media (max-width: 900px) {
-      .navbar {
-        padding: 0 20px;
-        height: 64px;
+    .quiz-nav .btn-back {
+      background: transparent;
+      border: none;
+      color: #6b7d8e;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      transition: color 0.2s;
+    }
+
+    .quiz-nav .btn-back:hover {
+      color: #243447;
+    }
+
+    .quiz-nav .btn-next {
+      background: #243447;
+      color: #FAF7F2;
+      border: none;
+      padding: 0.85rem 2.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      letter-spacing: 0.03em;
+    }
+
+    .quiz-nav .btn-next:hover {
+      background: #3a4a5e;
+    }
+
+    .result-card {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .result-card .result-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .result-card h3 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .result-card .bmi-display {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background: #EAE5DD;
+      border-radius: 999px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #243447;
+      margin: 1rem 0;
+    }
+
+    .result-card .recommendation {
+      max-width: 440px;
+      margin: 1.5rem auto;
+      padding: 1.5rem;
+      background: #FAF7F2;
+      border: 1px solid #EAE5DD;
+      border-radius: 6px;
+      text-align: left;
+    }
+
+    .result-card .recommendation h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: #243447;
+      margin-bottom: 0.5rem;
+    }
+
+    .result-card .recommendation p {
+      font-size: 0.95rem;
+      color: #3a4a5e;
+      line-height: 1.5;
+    }
+
+    .step-content {
+      animation: fadeSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
       }
-      .nav-links {
-        display: none;
-      }
-      section {
-        padding: 60px 20px;
-      }
-      .hero {
-        padding: 40px 20px 60px;
-        min-height: 80vh;
-      }
-      .collections-grid {
-        grid-template-columns: 1fr;
-      }
-      .why-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .faq-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-      .footer-top {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-      }
-      .hero-actions {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .btn-primary,
-      .btn-ghost {
-        width: 100%;
-        justify-content: center;
-      }
-      .email-form {
-        flex-direction: column;
-      }
-      #newsletter {
-        padding: 60px 20px 80px;
-      }
-      #faq {
-        padding: 60px 20px 80px;
-      }
-      .hero-badges {
-        gap: 8px;
-      }
-      .collections-header {
-        flex-direction: column;
-        align-items: flex-start;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    @media (max-width: 600px) {
-      .navbar {
-        padding: 0 16px;
-        height: 58px;
-      }
-      .nav-logo {
-        font-size: 16px;
-      }
-      .nav-cta {
-        font-size: 11px;
-        padding: 8px 16px;
-      }
-      .hero-headline {
-        font-size: 32px;
-      }
-      .hero-sub {
-        font-size: 15px;
-      }
-      .footer-top {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-      .hero-badges {
-        margin-top: 28px;
-      }
-      .trust-item {
-        font-size: 10px;
-        gap: 5px;
-      }
-      .trust-bar-inner {
-        gap: 24px;
-      }
-      .collection-card {
-        padding: 32px 24px;
-      }
-      .why-quote {
-        padding: 24px;
-      }
-      .about-visual {
-        min-height: 200px;
-      }
-      .about-monogram {
-        font-size: 40px;
-      }
-      .section-title {
-        font-size: 28px;
-      }
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.8rem; }
+      h2 { font-size: 2.2rem; }
+      .header-inner { flex-direction: column; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; gap: 1rem; }
+      .hero { padding: 3rem 0 4rem 0; min-height: 50vh; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero .subhead { font-size: 1.1rem; }
+      .hero-bg img { object-position: center; }
+      .golden-path blockquote { font-size: 1.6rem; }
+      .pillar-grid,
+      .collection-grid,
+      .values-grid { grid-template-columns: 1fr; }
+      .newsletter-box { padding: 2rem 1.5rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+
+      .quiz-container { max-width: 100%; }
+      .quiz-body { padding: 1.5rem; }
+      .quiz-nav { padding: 1rem 1.5rem; flex-direction: column; gap: 1rem; }
+      .quiz-nav .btn-next { width: 100%; text-align: center; }
+      .form-row { grid-template-columns: 1fr; }
+      .option-cards { grid-template-columns: 1fr; }
+      .quiz-header h2 { font-size: 1.6rem; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 1rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.8rem; text-align: center; }
+      .footer-bottom .legal a { margin: 0 0.75rem; }
+      .hero-actions { width: 100%; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .hero-badges { justify-content: center; }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <!-- ===== NAVIGATION ===== -->
-  <nav class="navbar">
-    <a href="#" class="nav-logo">AURE<span>V</span>IA</a>
-    <ul class="nav-links">
-      <li><a href="#collections">Collections</a></li>
-      <li><a href="#why">Why AUREVIA</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#newsletter">Community</a></li>
-    </ul>
-    <a href="#collections" class="nav-cta">Explore</a>
-  </nav>
-
-  <!-- ===== TRUST BAR ===== -->
-  <div class="trust-bar">
-    <div class="trust-bar-inner">
-      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Quality Verified</span>
-      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Science-Informed</span>
-      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Transparent Sourcing</span>
-      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Educational Resources</span>
-      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Integrity &amp; Excellence</span>
-      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Community Focused</span>
-      <!-- Duplicate for seamless loop -->
-      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Quality Verified</span>
-      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Science-Informed</span>
-      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Transparent Sourcing</span>
-      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Educational Resources</span>
-      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Integrity &amp; Excellence</span>
-      <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Community Focused</span>
-    </div>
-  </div>
-
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="home">
-    <div class="hero-bg"></div>
-    <div class="hero-eyebrow">Premium Longevity · Cellular Performance</div>
-    <h1 class="hero-headline">Cellular<br />Precision.<br /><em>Elevated.</em></h1>
-    <p class="hero-sub">
-      AUREVIA combines science-informed wellness with uncompromising quality to support vitality, recovery, and long-term well-being.<br /><br />
-      Thoughtfully curated solutions designed for those seeking a more intentional approach to health.
-    </p>
-    <div class="hero-actions">
-      <a href="#collections" class="btn-primary">
-        Explore Collections
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo-link" aria-label="AUREVIA home">
+        <span class="logo-text">AUREVIA</span>
       </a>
-      <a href="#why" class="btn-ghost">
-        Learn More
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Education</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="hero-badges">
-      <span class="badge"><span class="badge-dot"></span>Quality Verified</span>
-      <span class="badge"><span class="badge-dot"></span>Science-Informed</span>
-      <span class="badge"><span class="badge-dot"></span>Transparent Sourcing</span>
-      <span class="badge"><span class="badge-dot"></span>Educational Resources</span>
-    </div>
-  </section>
-
-  <!-- ===== COLLECTIONS ===== -->
-  <section id="collections">
-    <div class="collections-header">
-      <div>
-        <div class="section-label">Collections</div>
-        <h2 class="section-title">Precision wellness for distinct goals</h2>
+    <div class="trust-bar">
+      <div class="trust-bar-inner">
+        <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Quality Verified</span>
+        <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Science-Informed</span>
+        <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Transparent Sourcing</span>
+        <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Educational Resources</span>
+        <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Integrity &amp; Excellence</span>
+        <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Community Focused</span>
+        <!-- Duplicated for seamless loop -->
+        <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Quality Verified</span>
+        <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Science-Informed</span>
+        <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Transparent Sourcing</span>
+        <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Educational Resources</span>
+        <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Integrity &amp; Excellence</span>
+        <span class="trust-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>Community Focused</span>
       </div>
-      <a href="#" class="btn-ghost" style="color: var(--body-grey);">
-        View all collections
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-      </a>
     </div>
-    <div class="collections-grid">
-      <!-- Cellular Longevity -->
-      <a href="#" class="collection-card">
-        <div class="collection-card-glow"></div>
-        <div class="collection-tag">Longevity</div>
-        <div class="collection-name">Cellular Longevity</div>
-        <p class="collection-desc">
-          Support your pursuit of long-term vitality through wellness solutions inspired by cellular health and modern longevity science. Designed for individuals who prioritize prevention, resilience, and sustainable well-being.
-        </p>
-        <span class="collection-link">
-          Discover
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-        </span>
-      </a>
-      <!-- Recovery & Regeneration -->
-      <a href="#" class="collection-card">
-        <div class="collection-card-glow"></div>
-        <div class="collection-tag">Recovery</div>
-        <div class="collection-name">Recovery &amp; Regeneration</div>
-        <p class="collection-desc">
-          Created for active lifestyles and everyday restoration, our recovery collection focuses on supporting balance, resilience, and renewal. Helping you perform at your best while maintaining long-term wellness.
-        </p>
-        <span class="collection-link">
-          Discover
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-        </span>
-      </a>
-      <!-- Aesthetic Wellness -->
-      <a href="#" class="collection-card">
-        <div class="collection-card-glow"></div>
-        <div class="collection-tag">Aesthetic</div>
-        <div class="collection-name">Aesthetic Wellness</div>
-        <p class="collection-desc">
-          Beauty and wellness are deeply connected. Our aesthetic collection is designed to complement healthy routines that support confidence, radiance, and self-care. A refined approach to feeling your best, inside and out.
-        </p>
-        <span class="collection-link">
-          Discover
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-        </span>
-      </a>
-    </div>
-  </section>
+  </header>
 
-  <!-- ===== WHY AUREVIA ===== -->
-  <section id="why">
-    <div class="section-label">Why AUREVIA</div>
-    <h2 class="section-title">Built on uncompromising quality and trust</h2>
-    <div class="why-grid">
-      <ul class="why-list">
-        <li class="why-item">
-          <div class="why-icon">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          </div>
+  <main id="main-content">
+    <!-- ===== HERO WITH BACKGROUND IMAGE ===== -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <!-- 背景图片：居中显示 -->
+      <div class="hero-bg">
+        <img src="1FA52CA3-F2D1-4C65-BF44-BDD1975F1064.webp" alt="AUREVIA brand background" />
+      </div>
+      <!-- 半透明遮罩，让文字清晰可读 -->
+      <div class="hero-overlay"></div>
+
+      <div class="container">
+        <div class="hero-grid">
           <div>
-            <div class="why-item-title">Quality</div>
-            <p class="why-item-text">Every product is sourced according to rigorous quality standards and selected with attention to consistency and excellence.</p>
+            <h1 id="hero-heading">Cellular Precision.<br />Elevated.</h1>
+            <p class="subhead">
+              We are simplifying your path to vitality and long term well being.
+            </p>
+            <div class="hero-actions">
+              <a href="#quiz" class="btn btn-primary">
+                Discover Your Path
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </a>
+              <a href="#why" class="btn btn-ghost">
+                Learn More
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </a>
+            </div>
+            <div class="hero-badges">
+              <span class="badge"><span class="badge-dot"></span>Quality Verified</span>
+              <span class="badge"><span class="badge-dot"></span>Science-Informed</span>
+              <span class="badge"><span class="badge-dot"></span>Transparent Sourcing</span>
+              <span class="badge"><span class="badge-dot"></span>Educational Resources</span>
+            </div>
           </div>
-        </li>
-        <li class="why-item">
-          <div class="why-icon">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-          </div>
-          <div>
-            <div class="why-item-title">Transparency</div>
-            <p class="why-item-text">We believe trust begins with openness. Our commitment to clear documentation and responsible sourcing is at the heart of everything we do.</p>
-          </div>
-        </li>
-        <li class="why-item">
-          <div class="why-icon">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-          </div>
-          <div>
-            <div class="why-item-title">Education</div>
-            <p class="why-item-text">Empowering informed decisions through accessible, science-informed resources and wellness education.</p>
-          </div>
-        </li>
-        <li class="why-item">
-          <div class="why-icon">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-          </div>
-          <div>
-            <div class="why-item-title">Integrity</div>
-            <p class="why-item-text">We prioritize long-term relationships over short-term trends, guided by honesty, responsibility, and continuous improvement.</p>
-          </div>
-        </li>
-        <li class="why-item">
-          <div class="why-icon">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-          </div>
-          <div>
-            <div class="why-item-title">Innovation</div>
-            <p class="why-item-text">Inspired by emerging wellness science while maintaining a thoughtful and measured approach to quality and safety.</p>
-          </div>
-        </li>
-        <li class="why-item">
-          <div class="why-icon">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-          </div>
-          <div>
-            <div class="why-item-title">Community</div>
-            <p class="why-item-text">AUREVIA is built for individuals who value personal growth, vitality, and intentional living.</p>
-          </div>
-        </li>
-      </ul>
-      <div>
-        <div class="why-quote">
-          <p>"AUREVIA represents a new standard in wellness—where quality, transparency, and science come together to support a more intentional approach to health and vitality."</p>
-          <div class="why-quote-source">— AUREVIA Philosophy</div>
-        </div>
-        <div class="cert-row">
-          <span class="cert-pill"><span class="cert-check">✓</span> Quality Verified</span>
-          <span class="cert-pill"><span class="cert-check">✓</span> Science-Informed</span>
-          <span class="cert-pill"><span class="cert-check">✓</span> Transparent Sourcing</span>
-          <span class="cert-pill"><span class="cert-check">✓</span> Educational Resources</span>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about">
-    <div class="about-grid">
-      <div class="about-visual">
-        <div class="about-visual-inner">
-          <div class="about-monogram">AUREVIA</div>
-          <div class="about-tagline">Science at the Cellular Level</div>
+    <div class="container">
+      <!-- THE GOLDEN PATH -->
+      <section>
+        <div class="golden-path">
+          <blockquote>
+            "A symbol of growth.
+            A commitment to vitality.
+            A journey toward balance."
+          </blockquote>
+          <div class="attribution">&mdash; AUREVIA&trade;</div>
+        </div>
+      </section>
+
+      <!-- THREE PILLARS -->
+      <section>
+        <div class="section-title">
+          <h2>Our Pillars of Vitality</h2>
+          <p>Balance, consistency, and intention guide every step.</p>
+        </div>
+        <div class="pillar-grid">
+          <div class="pillar-item">
+            <h3>Cultivate</h3>
+            <p>Build a foundation for lasting vitality through daily choices.</p>
+          </div>
+          <div class="pillar-item">
+            <h3>Restore</h3>
+            <p>Support recovery and resilience for sustainable energy.</p>
+          </div>
+          <div class="pillar-item">
+            <h3>Elevate</h3>
+            <p>Pursue wellness with purpose and thoughtful intention.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================
+         MULTI-STEP WELLNESS QUIZ
+         ============================================ -->
+    <section id="quiz" class="quiz-section" aria-labelledby="quiz-heading">
+      <div class="container">
+        <div class="section-title" style="text-align: center;">
+          <h2 id="quiz-heading">Discover Your Path to Vitality</h2>
+          <p style="margin: 0 auto;">A short assessment to help guide your wellness journey.</p>
+        </div>
+
+        <div class="quiz-container" id="quizApp">
+          <!-- Quiz header -->
+          <div class="quiz-header">
+            <h2>Wellness Assessment</h2>
+            <p>Step <span id="currentStepNum">1</span> of <span id="totalSteps">6</span></p>
+            <div class="progress-bar-outer" style="margin-top: 1rem;">
+              <div class="progress-bar-inner" id="progressBar" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Step dots -->
+          <div class="step-indicator" id="stepDots"></div>
+
+          <!-- Step content -->
+          <div class="quiz-body" id="quizBody"></div>
+
+          <!-- Navigation -->
+          <div class="quiz-nav">
+            <button class="btn-back" id="btnBack" style="visibility: hidden;">
+              &larr; Back
+            </button>
+            <button class="btn-next" id="btnNext">Get Started</button>
+          </div>
         </div>
       </div>
-      <div>
-        <div class="section-label">About</div>
-        <h2 class="section-title">Advancing Wellness Through Science</h2>
-        <p class="about-body">
-          AUREVIA was founded to bring a higher standard of quality, transparency, and education to the wellness space. Our mission is to help individuals make informed decisions through science-driven resources and carefully selected products.<br /><br />
-          We sit between luxury wellness brands and the frontier of longevity science—offering cellular performance tools once accessible only to insiders.
-        </p>
-        <a href="#" class="btn-ghost" style="color: var(--body-grey);">
-          Learn more about our approach
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-        </a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== FAQ ===== -->
-  <section id="faq">
-    <div class="section-label">FAQ</div>
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <h6>What is AUREVIA?</h6>
-        <p>AUREVIA is a premium wellness brand focused on quality, transparency, and science-informed approaches to vitality, recovery, and long-term well-being.</p>
-      </div>
-      <div class="faq-item">
-        <h6>What makes AUREVIA different?</h6>
-        <p>Our approach combines careful product selection, transparent standards, and educational resources designed to support informed wellness decisions.</p>
-      </div>
-      <div class="faq-item">
-        <h6>How do I choose the right collection?</h6>
-        <p>Each collection is designed around a different wellness goal. Explore our Learning Center for guidance or contact our team for general product information.</p>
-      </div>
-      <div class="faq-item">
-        <h6>Where can I learn more about your quality standards?</h6>
-        <p>We are committed to transparency and provide detailed information regarding sourcing, documentation, and quality practices whenever available.</p>
-      </div>
-      <div class="faq-item">
-        <h6>Do you offer educational resources?</h6>
-        <p>Yes. Our Education Center contains articles, guides, and research-informed content covering wellness, longevity, recovery, and healthy living.</p>
-      </div>
-      <div class="faq-item">
-        <h6>How can I stay updated?</h6>
-        <p>You can join our newsletter to receive wellness insights, educational content, and announcements regarding new collections and programs.</p>
-      </div>
-    </div>
-  </section>
+    <div class="container">
+      <!-- COLLECTIONS -->
+      <section id="collections">
+        <div class="section-title">
+          <h2>Collections</h2>
+          <p>Precision wellness for distinct goals.</p>
+        </div>
+        <div class="collection-grid">
+          <article class="collection-card" aria-labelledby="collection-1-title">
+            <h3 id="collection-1-title">Cellular Longevity</h3>
+            <p>Support your long term vitality through wellness practices inspired by cellular health and longevity science.</p>
+          </article>
+          <article class="collection-card" aria-labelledby="collection-2-title">
+            <h3 id="collection-2-title">Recovery &amp; Regeneration</h3>
+            <p>Focused on restoration, resilience, and sustainable performance.</p>
+          </article>
+          <article class="collection-card" aria-labelledby="collection-3-title">
+            <h3 id="collection-3-title">Aesthetic Wellness</h3>
+            <p>A refined approach to confidence, radiance, and selfcare.</p>
+          </article>
+        </div>
+      </section>
 
-  <!-- ===== NEWSLETTER ===== -->
-  <section id="newsletter">
-    <div class="newsletter-inner">
-      <div class="section-label" style="color: var(--gold);">Community</div>
-      <h2 class="section-title light">Join the AUREVIA Community</h2>
-      <p class="section-sub light">Receive wellness insights, educational content, and exclusive updates—curated for those who take longevity seriously.</p>
-      <form class="email-form">
-        <input type="email" class="email-input" placeholder="Enter your email address" />
-        <button class="email-submit">Subscribe</button>
-      </form>
-      <p class="email-note">We respect your privacy. Unsubscribe anytime.</p>
-    </div>
-  </section>
+      <!-- WHY AUREVIA -->
+      <section id="why">
+        <div class="section-title">
+          <h2>Why AUREVIA</h2>
+          <p>Built on uncompromising quality and trust.</p>
+        </div>
+        <div class="values-grid">
+          <div class="value-item"><h4>Quality</h4><p>Excellence in every detail</p></div>
+          <div class="value-item"><h4>Transparency</h4><p>Trust through openness</p></div>
+          <div class="value-item"><h4>Education</h4><p>Empowering informed decisions</p></div>
+          <div class="value-item"><h4>Integrity</h4><p>Guided by responsibility</p></div>
+          <div class="value-item"><h4>Innovation</h4><p>Science-informed progress</p></div>
+          <div class="value-item"><h4>Community</h4><p>Intentional living together</p></div>
+        </div>
+      </section>
 
-  <!-- ===== FOOTER ===== -->
+      <!-- NEWSLETTER -->
+      <section style="border-bottom: none; padding-bottom: 3rem;">
+        <div class="newsletter-box">
+          <h2>Join the AUREVIA Community</h2>
+          <p>Receive wellness insights, educational content, and exclusive updates.</p>
+          <form class="newsletter-form" action="#" method="post" aria-label="Subscribe to newsletter">
+            <label for="newsletter-email" class="visually-hidden">Email address</label>
+            <div class="newsletter-input">
+              <input id="newsletter-email" name="email" type="email" placeholder="Your email address" aria-label="Email address" required />
+              <button class="btn" type="submit">Subscribe</button>
+            </div>
+          </form>
+          <p class="email-note">We respect your privacy. Unsubscribe anytime.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand-name">AURE<span>V</span>IA</div>
-        <p class="footer-tagline">Cellular Precision. Elevated.<br />Premium longevity &amp; cellular performance.</p>
-        <div class="footer-social">
-          <a href="#" class="social-icon" aria-label="Instagram">
-            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          </a>
-          <a href="#" class="social-icon" aria-label="X">
-            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 5.828 5.45-5.828zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="#" class="social-icon" aria-label="LinkedIn">
-            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.0
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="#">Home</a>
+          <a href="#">Collections</a>
+          <a href="#">Education</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <a href="#">Cellular Longevity</a>
+          <a href="#">Recovery &amp; Regeneration</a>
+          <a href="#">Aesthetic Wellness</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Learning Center</a>
+          <a href="#">FAQ</a>
+          <a href="#">Research Insights</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Shipping Policy</a>
+          <a href="#">Returns Policy</a>
+          <a href="#">Disclaimer</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 AUREVIA. All Rights Reserved.</span>
+        <div class="legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       MULTI-STEP QUIZ JAVASCRIPT
+       ============================================ -->
+  <script>
+    (function() {
+      // ---- State ----
+      const TOTAL_STEPS = 6;
+      let currentStep = 0; // 0-indexed
+      let formData = {
+        name: '',
+        email: '',
+        age: '',
+        gender: '',
+        heightFeet: '',
+        heightInches: '',
+        heightCm: '',
+        weightLbs: '',
+        weightKg: '',
+        useImperial: true,
+        activityLevel: '',
+        healthGoal: '',
+        healthConditions: []
+      };
+
+      // ---- DOM refs ----
+      const quizBody = document.getElementById('quizBody');
+      const btnBack = document.getElementById('btnBack');
+      const btnNext = document.getElementById('btnNext');
+      const progressBar = document.getElementById('progressBar');
+      const stepDots = document.getElementById('stepDots');
+      const currentStepNum = document.getElementById('currentStepNum');
+      const totalStepsEl = document.getElementById('totalSteps');
+
+      totalStepsEl.textContent = TOTAL_STEPS;
+
+      // ---- Step definitions ----
+      const steps = [
+        {
+          title: 'Welcome',
+          subtitle: 'Let\'s begin your personalized wellness assessment.',
+          render: renderStep0,
+          validate: () => true
+        },
+        {
+          title: 'About You',
+          subtitle: 'Tell us a little about yourself.',
+          render: renderStep1,
+          validate: validateStep1
+        },
+        {
+          title: 'Body Metrics',
+          subtitle: 'Help us understand your physical profile.',
+          render: renderStep2,
+          validate: validateStep2
+        },
+        {
+          title: 'Your Lifestyle',
+          subtitle: 'How would you describe your daily activity?',
+          render: renderStep3,
+          validate: validateStep3
+        },
+        {
+          title: 'Your Goals',
+          subtitle: 'What brings you to AUREVIA today?',
+          render: renderStep4,
+          validate: validateStep4
+        },
+        {
+          title: 'Your Results',
+          subtitle: '',
+          render: renderResults,
+          validate: () => true
+        }
+      ];
+
+      // ---- Init ----
+      function init() {
+        buildStepDots();
+        renderCurrentStep();
+        updateNav();
+        updateProgress();
+      }
+
+      function buildStepDots() {
+        stepDots.innerHTML = '';
+        for (let i = 0; i < TOTAL_STEPS; i++) {
+          const dot = document.createElement('span');
+          dot.className = 'step-dot';
+          dot.setAttribute('aria-label', 'Step ' + (i + 1));
+          stepDots.appendChild(dot);
+        }
+      }
+
+      function updateStepDots() {
+        const dots = stepDots.querySelectorAll('.step-dot');
+        dots.forEach((dot, i) => {
+          dot.classList.remove('active', 'done');
+          if (i < currentStep) dot.classList.add('done');
+          if (i === currentStep) dot.classList.add('active');
+        });
+      }
+
+      function updateProgress() {
+        const pct = Math.round((currentStep / (TOTAL_STEPS - 1)) * 100);
+        progressBar.style.width = pct + '%';
+        currentStepNum.textContent = currentStep + 1;
+        updateStepDots();
+      }
+
+      function updateNav() {
+        if (currentStep === 0) {
+          btnBack.style.visibility = 'hidden';
+          btnNext.textContent = 'Get Started';
+        } else if (currentStep === TOTAL_STEPS - 1) {
+          btnBack.style.visibility = 'visible';
+          btnNext.textContent = 'Start Your Journey';
+        } else {
+          btnBack.style.visibility = 'visible';
+          btnNext.textContent = 'Continue';
+        }
+      }
+
+      function renderCurrentStep() {
+        const step = steps[currentStep];
+        quizBody.innerHTML = '<div class="step-content">' + step.render() + '</div>';
+        // Re-bind any event listeners
+        bindStepEvents();
+      }
+
+      function goToStep(index) {
+        if (index < 0 || index >= TOTAL_STEPS) return;
+        // Validate before going forward
+        if (index > currentStep) {
+          const step = steps[currentStep];
+          if (!step.validate()) return;
+        }
+        currentStep = index;
+        renderCurrentStep();
+        updateNav();
+        updateProgress();
+        // Scroll to quiz top
+        document.getElementById('quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      function bindStepEvents() {
+        // Step 2: unit toggle
+        const toggleBtn = document.getElementById('toggleUnits');
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', function() {
+            formData.useImperial = !formData.useImperial;
+            renderCurrentStep();
+            updateNav();
+            updateProgress();
+          });
+        }
+      }
+
+      // ---- Navigation handlers ----
+      btnBack.addEventListener('click', function() {
+        if (currentStep > 0) goToStep(currentStep - 1);
+      });
+
+      btnNext.addEventListener('click', function() {
+        if (currentStep < TOTAL_STEPS - 1) {
+          if (steps[currentStep].validate()) {
+            goToStep(currentStep + 1);
+          }
+        } else {
+          // Final step: "Start Your Journey"
+          handleSubmit();
+        }
+      });
+
+      function handleSubmit() {
+        // Collect remaining data
+        collectFormData();
+
+        // In production, this would POST to an API
+        console.log('Quiz submitted:', formData);
+
+        // Show a thank-you inline
+        quizBody.innerHTML = `
+          <div class="step-content result-card">
+            <div class="result-icon">✨</div>
+            <h3>Thank You, ${escapeHtml(formData.name || 'Friend')}</h3>
+            <p style="color: #3a4a5e; max-width: 440px; margin: 0.5rem auto 1.5rem auto;">
+              Your wellness profile has been received. Our team will prepare personalized
+              recommendations based on your responses.
+            </p>
+            <div class="bmi-display">
+              Your Journey Begins Now
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #6b7d8e;">
+              You'll receive an email at <strong>${escapeHtml(formData.email)}</strong> within 24 hours.
+            </p>
+            <div style="margin-top: 2rem;">
+              <a href="#" class="btn btn-primary" onclick="location.reload()">
+                Return Home
+              </a>
+            </div>
+          </div>
+        `;
+        btnBack.style.display = 'none';
+        btnNext.style.display = 'none';
+        progressBar.style.width = '100%';
+        currentStepNum.textContent = TOTAL_STEPS;
+        updateStepDotsComplete();
+      }
+
+      function updateStepDotsComplete() {
+        const dots = stepDots.querySelectorAll('.step-dot');
+        dots.forEach(d => { d.classList.add('done'); d.classList.remove('active'); });
+      }
+
+      // ---- Collect form data from DOM ----
+      function collectFormData() {
+        // Step 1
+        const nameEl = document.getElementById('quiz-name');
+        const emailEl = document.getElementById('quiz-email');
+        const ageEl = document.getElementById('quiz-age');
+        if (nameEl) formData.name = nameEl.value.trim();
+        if (emailEl) formData.email = emailEl.value.trim();
+        if (ageEl) formData.age = ageEl.value.trim();
+
+        // Gender
+        const genderRadio = document.querySelector('input[name="quiz-gender"]:checked');
+        if (genderRadio) formData.gender = genderRadio.value;
+
+        // Step 2 - imperial or metric
+        if (formData.useImperial) {
+          const ftEl = document.getElementById('quiz-height-ft');
+          const inEl = document.getElementById('quiz-height-in');
+          const lbsEl = document.getElementById('quiz-weight-lbs');
+          if (ftEl) formData.heightFeet = ftEl.value.trim();
+          if (inEl) formData.heightInches = inEl.value.trim();
+          if (lbsEl) formData.weightLbs = lbsEl.value.trim();
+        } else {
+          const cmEl = document.getElementById('quiz-height-cm');
+          const kgEl = document.getElementById('quiz-weight-kg');
+          if (cmEl) formData.heightCm = cmEl.value.trim();
+          if (kgEl) formData.weightKg = kgEl.value.trim();
+        }
+
+        // Step 3
+        const activityRadio = document.querySelector('input[name="quiz-activity"]:checked');
+        if (activityRadio) formData.activityLevel = activityRadio.value;
+
+        // Step 4
+        const goalCheckboxes = document.querySelectorAll('input[name="quiz-goal"]:checked');
+        formData.healthGoal = Array.from(goalCheckboxes).map(cb => cb.value).join(', ');
+      }
+
+      // ---- Render functions ----
+
+      function renderStep0() {
+        return `
+          <div style="text-align: center; padding: 2rem 0;">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">🌿</div>
+            <h3>Welcome to Your Wellness Assessment</h3>
+            <p style="color: #3a4a5e; max-width: 440px; margin: 0.5rem auto 1.5rem auto; line-height: 1.6;">
+              This brief assessment helps us understand your unique profile so we can
+              recommend the most suitable path for your vitality journey.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
+              <span style="font-size: 0.85rem; color: #6b7d8e;">⏱ ~2 minutes</span>
+              <span style="font-size: 0.85rem; color: #6b7d8e;">🔒 100% confidential</span>
+              <span style="font-size: 0.85rem; color: #6b7d8e;">🧬 Science-informed</span>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderStep1() {
+        const saved = formData;
+        return `
+          <h3>About You</h3>
+          <p class="step-subtitle">Tell us a little about yourself.</p>
+          <div class="form-row">
+            <div class="form-group" id="name-group">
+              <label for="quiz-name">Full Name</label>
+              <input type="text" id="quiz-name" placeholder="Jane Smith" value="${escapeAttr(saved.name)}" />
+              <span class="error-msg">Please enter your name.</span>
+            </div>
+            <div class="form-group" id="email-group">
+              <label for="quiz-email">Email Address</label>
+              <input type="email" id="quiz-email" placeholder="jane@example.com" value="${escapeAttr(saved.email)}" />
+              <span class="error-msg">Please enter a valid email.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group" id="age-group">
+              <label for="quiz-age">Age</label>
+              <input type="number" id="quiz-age" placeholder="35" min="18" max="120" value="${escapeAttr(saved.age)}" />
+              <span class="error-msg">Please enter a valid age (18+).</span>
+            </div>
+            <div class="form-group" id="gender-group">
+              <label>Gender</label>
+              <div class="option-cards" style="grid-template-columns: 1fr 1fr 1fr;">
+                <label class="option-card ${saved.gender === 'female' ? 'selected' : ''}">
+                  <input type="radio" name="quiz-gender" value="female" ${saved.gender === 'female' ? 'checked' : ''} />
+                  <div class="option-icon">♀</div>
+                  <div class="option-title">Female</div>
+                </label>
+                <label class="option-card ${saved.gender === 'male' ? 'selected' : ''}">
+                  <input type="radio" name="quiz-gender" value="male" ${saved.gender === 'male' ? 'checked' : ''} />
+                  <div class="option-icon">♂</div>
+                  <div class="option-title">Male</div>
+                </label>
+                <label class="option-card ${saved.gender === 'other' ? 'selected' : ''}">
+                  <input type="radio" name="quiz-gender" value="other" ${saved.gender === 'other' ? 'checked' : ''} />
+                  <div class="option-icon">⚥</div>
+                  <div class="option-title">Other</div>
+                </label>
+              </div>
+              <span class="error-msg" id="gender-error">Please select an option.</span>
+            </div>
+          </div>
+        `;
+      }
+
+      function validateStep1() {
+        let valid = true;
+        const name = document.getElementById('quiz-name');
+        const email = document.getElementById('quiz-email');
+        const age = document.getElementById('quiz-age');
+
+        clearErrors();
+
+        if (!name || !name.value.trim()) {
+          showError('name-group'); valid = false;
+        }
+        if (!email || !email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+          showError('email-group'); valid = false;
+        }
+        if (!age || !age.value || parseInt(age.value) < 18 || parseInt(age.value) > 120) {
+          showError('age-group'); valid = false;
+        }
+        if (!document.querySelector('input[name="quiz-gender"]:checked')) {
+          showError('gender-group'); valid = false;
+        }
+        return valid;
+      }
+
+      function renderStep2() {
+        const saved = formData;
+        const isImp = saved.useImperial;
+        return `
+          <h3>Body Metrics</h3>
+          <p class="step-subtitle">Help us understand your physical profile.</p>
+          <div style="text-align: right; margin-bottom: 1.5rem;">
+            <button type="button" id="toggleUnits" class="btn btn-ghost" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">
+              Switch to ${isImp ? 'Metric (cm/kg)' : 'Imperial (ft/in/lbs)'}
+            </button>
+          </div>
+          ${isImp ? renderImperialInputs(saved) : renderMetricInputs(saved)}
+        `;
+      }
+
+      function renderImperialInputs(saved) {
+        return `
+          <div class="form-row">
+            <div class="form-group" id="height-ft-group">
+              <label for="quiz-height-ft">Height (ft)</label>
+              <input type="number" id="quiz-height-ft" placeholder="5" min="3" max="8" value="${escapeAttr(saved.heightFeet)}" />
+              <span class="error-msg">Enter feet (3-8).</span>
+            </div>
+            <div class="form-group" id="height-in-group">
+              <label for="quiz-height-in">Height (in)</label>
+              <input type="number" id="quiz-height-in" placeholder="6" min="0" max="11" value="${escapeAttr(saved.heightInches)}" />
+              <span class="error-msg">Enter inches (0-11).</span>
+            </div>
+          </div>
+          <div class="form-group" id="weight-lbs-group">
+            <label for="quiz-weight-lbs">Weight (lbs)</label>
+            <input type="number" id="quiz-weight-lbs" placeholder="150" min="60" max="600" value="${escapeAttr(saved.weightLbs)}" />
+            <span class="error-msg">Enter a valid weight (60-600 lbs).</span>
+          </div>
+        `;
+      }
+
+      function renderMetricInputs(saved) {
+        return `
+          <div class="form-group" id="height-cm-group">
+            <label for="quiz-height-cm">Height (cm)</label>
+            <input type="number" id="quiz-height-cm" placeholder="168" min="90" max="250" value="${escapeAttr(saved.heightCm)}" />
+            <span class="error-msg">Enter a valid height (90-250 cm).</span>
+          </div>
+          <div class="form-group" id="weight-kg-group">
+            <label for="quiz-weight-kg">Weight (kg)</label>
+            <input type="number" id="quiz-weight-kg" placeholder="68" min="25" max="270" value="${escapeAttr(saved.weightKg)}" />
+            <span class="error-msg">Enter a valid weight (25-270 kg).</span>
+          </div>
+        `;
+      }
+
+      function validateStep2() {
+        clearErrors();
+        const saved = formData;
+        // Update formData from DOM first
+        if (saved.useImperial) {
+          const ft = document.getElementById('quiz-height-ft');
+          const inc = document.getElementById('quiz-height-in');
+          const lbs = document.getElementById('quiz-weight-lbs');
+          let valid = true;
+          if (!ft || !ft.value || parseInt(ft.value) < 3 || parseInt(ft.value) > 8) {
+            showError('height-ft-group'); valid = false;
+          }
+          if (!inc || inc.value === '' || parseInt(inc.value) < 0 || parseInt(inc.value) > 11) {
+            showError('height-in-group'); valid = false;
+          }
+          if (!lbs || !lbs.value || parseInt(lbs.value) < 60 || parseInt(lbs.value) > 600) {
+            showError('weight-lbs-group'); valid = false;
+          }
+          return valid;
+        } else {
+          const cm = document.getElementById('quiz-height-cm');
+          const kg = document.getElementById('quiz-weight-kg');
+          let valid = true;
+          if (!cm || !cm.value || parseInt(cm.value) < 90 || parseInt(cm.value) > 250) {
+            showError('height-cm-group'); valid = false;
+          }
+          if (!kg || !kg.value || parseInt(kg.value) < 25 || parseInt(kg.value) > 270) {
+            showError('weight-kg-group'); valid = false;
+          }
+          return valid;
+        }
+      }
+
+      function renderStep3() {
+        const saved = formData;
+        const levels = [
+          { value: 'sedentary', icon: '🪑', title: 'Sedentary', label: 'Little or no exercise' },
+          { value: 'light', icon: '🚶', title: 'Lightly Active', label: 'Light exercise 1-3 days/week' },
+          { value: 'moderate', icon: '🏃', title: 'Moderately Active', label: 'Moderate exercise 3-5 days/week' },
+          { value: 'very', icon: '💪', title: 'Very Active', label: 'Hard exercise 6-7 days/week' },
+          { value: 'extra', icon: '🔥', title: 'Extra Active', label: 'Very hard exercise or physical job' }
+        ];
+        return `
+          <h3>Your Lifestyle</h3>
+          <p class="step-subtitle">How would you describe your daily activity level?</p>
+          <div class="option-cards" style="grid-template-columns: 1fr;" id="activity-group">
+            ${levels.map(l => `
+              <label class="option-card ${saved.activityLevel === l.value ? 'selected' : ''}">
+                <input type="radio" name="quiz-activity" value="${l.value}" ${saved.activityLevel === l.value ? 'checked' : ''} />
+                <span style="display: flex; align-items: center; gap: 1rem; text-align: left;">
+                  <span style="font-size: 1.8rem;">${l.icon}</span>
+                  <span>
+                    <span style="display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500;">${l.title}</span>
+                    <span style="display: block; font-size: 0.8rem; color: #6b7d8e;">${l.label}</span>
+                  </span>
+                </span>
+              </label>
+            `).join('')}
+            <span class="error-msg" id="activity-error" style="text-align: center;">Please select your activity level.</span>
+          </div>
+        `;
+      }
+
+      function validateStep3() {
+        clearErrors();
+        const selected = document.querySelector('input[name="quiz-activity"]:checked');
+        if (!selected) {
+          showError('activity-group'); return false;
+        }
+        return true;
+      }
+
+      function renderStep4() {
+        const saved = formData;
+        const goals = [
+          { value: 'energy', icon: '⚡', title: 'Boost Energy' },
+          { value: 'weight', icon: '⚖️', title: 'Weight Management' },
+          { value: 'recovery', icon: '🔄', title: 'Recovery & Resilience' },
+          { value: 'longevity', icon: '🧬', title: 'Cellular Longevity' },
+          { value: 'radiance', icon: '✨', title: 'Aesthetic Wellness' },
+          { value: 'balance', icon: '☯️', title: 'Holistic Balance' }
+        ];
+        const selectedGoals = saved.healthGoal ? saved.healthGoal.split(', ') : [];
+        return `
+          <h3>Your Goals</h3>
+          <p class="step-subtitle">What brings you to AUREVIA today? Select all that apply.</p>
+          <div class="option-cards" id="goals-group">
+            ${goals.map(g => `
+              <label class="option-card ${selectedGoals.includes(g.value) ? 'selected' : ''}">
+                <input type="checkbox" name="quiz-goal" value="${g.value}" ${selectedGoals.includes(g.value) ? 'checked' : ''} />
+                <div class="option-icon">${g.icon}</div>
+                <div class="option-title">${g.title}</div>
+              </label>
+            `).join('')}
+            <span class="error-msg" id="goals-error" style="text-align: center; grid-column: 1 / -1;">Please select at least one goal.</span>
+          </div>
+        `;
+      }
+
+      function validateStep4() {
+        clearErrors();
+        const checked = document.querySelectorAll('input[name="quiz-goal"]:checked');
+        if (checked.length === 0) {
+          showError('goals-group'); return false;
+        }
+        return true;
+      }
+
+      function renderResults() {
+        collectFormData();
+        const bmi = calculateBMI();
+        const category = getBMICategory(bmi);
+        const recommendation = getRecommendation(bmi, category);
+
+        return `
+          <div class="result-card">
+            <div class="result-icon">${category.icon}</div>
+            <h3>Your Wellness Profile</h3>
+            <p style="color: #3a4a5e;">Based on your responses, here's a snapshot.</p>
+            <div class="bmi-display">
+              ${bmi ? 'BMI: ' + bmi + ' — ' + category.label : 'Profile Complete'}
+            </div>
+            <div class="recommendation">
+              <h4>${recommendation.title}</h4>
+              <p>${recommendation.text}</p>
+            </div>
+            <p style="font-size: 0.85rem; color: #6b7d8e; margin-top: 1rem;">
+              This is an informational assessment only. Consult a healthcare professional before beginning any wellness program.
+            </p>
+          </div>
+        `;
+      }
+
+      function calculateBMI() {
+        const d = formData;
+        if (d.useImperial) {
+          const ft = parseFloat(d.heightFeet) || 0;
+          const inc = parseFloat(d.heightInches) || 0;
+          const lbs = parseFloat(d.weightLbs) || 0;
+          const totalInches = ft * 12 + inc;
+          if (totalInches > 0 && lbs > 0) {
+            return Math.round((lbs / (totalInches * totalInches)) * 703 * 10) / 10;
+          }
+        } else {
+          const cm = parseFloat(d.heightCm) || 0;
+          const kg = parseFloat(d.weightKg) || 0;
+          const meters = cm / 100;
+          if (meters > 0 && kg > 0) {
+            return Math.round((kg / (meters * meters)) * 10) / 10;
+          }
+        }
+        return null;
+      }
+
+      function getBMICategory(bmi) {
+        if (bmi === null) return { label: 'Data Insufficient', icon: '📋' };
+        if (bmi < 18.5) return { label: 'Underweight', icon: '🌱' };
+        if (bmi < 25) return { label: 'Healthy Weight', icon: '✅' };
+        if (bmi < 30) return { label: 'Overweight', icon: '⚠️' };
+        return { label: 'Obesity Range', icon: '❤️' };
+      }
+
+      function getRecommendation(bmi, category) {
+        const goalStr = formData.healthGoal || '';
+        if (category.label === 'Healthy Weight') {
+          return {
+            title: 'You\'re in a great place.',
+            text: 'Focus on maintaining your vitality through our Cellular Longevity and Recovery collections. Your balanced profile suggests you would benefit most from preventative wellness strategies.'
+          };
+        }
+        if (category.label === 'Overweight' || category.label === 'Obesity Range') {
+          return {
+            title: 'Targeted Support Available',
+            text: 'Your profile suggests you may benefit from a structured wellness plan. Our Recovery & Regeneration collection, combined with lifestyle guidance, can help you move toward sustainable vitality.'
+          };
+        }
+        return {
+          title: 'Personalized Path Ahead',
+          text: 'Based on your profile and goals, we recommend starting with a comprehensive wellness consultation. Our team will help you select the right collection for your unique journey.'
+        };
+      }
+
+      // ---- Helpers ----
+      function showError(groupId) {
+        const el = document.getElementById(groupId);
+        if (el) el.classList.add('error');
+      }
+
+      function clearErrors() {
+        document.querySelectorAll('.form-group.error').forEach(el => el.classList.remove('error'));
+        document.querySelectorAll('.option-cards').forEach(el => {
+          const errSpan = el.querySelector('.error-msg');
+          if (errSpan) errSpan.style.display = 'none';
+        });
+      }
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      }
+
+      function escapeAttr(str) {
+        if (!str) return '';
+        return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+
+      // ---- Start ----
+      init();
+    })();
+  </script>
+</body>
+</html>
